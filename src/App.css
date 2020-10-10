@@ -1,0 +1,27 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+} */
+
+.dish{
+  width: 200px;
+}
+
+.midLine{
+  width: 1px;
+  background-color: black;
+}
+
+.del{
+  background: #8a1919;
+  color:#fff;
+  border:none;
+  padding:5px 12px;
+  border-radius:50%;
+  cursor: point;
+  /* float:right; */
+}

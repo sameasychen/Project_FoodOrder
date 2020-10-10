@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<profile>
+    <dish id='000'>
+        <foodPic>https://www.jocooks.com/wp-content/uploads/2019/03/kung-pao-chicken-1-2.jpg</foodPic>
+        <foodName>Kong Pao Chicken</foodName>
+        <foodPrice>12.99</foodPrice>
+        
+    </dish>
+    <dish id='001'>
+        <foodPic>https://kirbiecravings.com/wp-content/uploads/2018/12/mapo-tofu-4-1-700x857.jpg</foodPic>
+        <foodName>Mapo Tofu</foodName>
+        <foodPrice>10.99</foodPrice>
+
+    </dish>
+    <dish id='002'>
+        <foodPic>https://www.jessicagavin.com/wp-content/uploads/2018/09/fried-rice-7-600x900.jpg</foodPic>
+        <foodName>Fried Rice</foodName>
+        <foodPrice>11.99</foodPrice>
+
+    </dish>
+</profile>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Title Goes Here</title>
+</head>
+
+<body>
+    <p>xml test</p>
+    <script>
+        var parseXml;
+        if (typeof window.DOMParser != "undefined") { 
+            parseXml = function (xmlStr) { return (new window.DOMParser()).parseFromString(xmlStr, "text/xml"); }; }
+        else if (typeof window.ActiveXObject != "undefined" && new window.ActiveXObject("Microsoft.XMLDOM")) {
+             parseXml = function (xmlStr) { var xmlDoc = new window.ActiveXObject("Microsoft.XMLDOM"); 
+             xmlDoc.async = "false"; xmlDoc.loadXML(xmlStr); return xmlDoc; }; } else { throw new Error("No XML parser found"); }
+
+        var food = new Map();
+
+        var xml = parseXml("<profile> <dish id='0'> <foodPic>https://www.jocooks.com/wp-content/uploads/2019/03/kung-pao-chicken-1-2.jpg</foodPic><foodName>Kong Pao Chicken</foodName></dish><dish id='1'><foodPic>https://kirbiecravings.com/wp-content/uploads/2018/12/mapo-tofu-4-1-700x857.jpg</foodPic><foodName>Mapo Tofu</foodName></dish></profile>");
+
+        var x = xml.getElementsByTagName("dish");
+
+        for (i = 0; i < x.length; i++) {
+            var foodInfoArray = new Array(); 
+            foodInfoArray.push(x[i].getElementsByTagName("foodPic")[0].textContent,
+
+            x[i].getElementsByTagName("foodName")[0].textContent)
+            food.set(x[i].getAttribute("id"), foodInfoArray)
+            console.log(x[i].getAttribute("id"));
+            console.log(x[i].getElementsByTagName("foodPic")[0].textContent);
+            console.log(x[i].getElementsByTagName("foodName")[0].textContent);
+        }
+        console.log(food.get("1"));           
+    </script>
+</body>
+
+</html>
