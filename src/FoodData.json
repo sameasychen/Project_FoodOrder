@@ -1,0 +1,26 @@
+[
+    {
+        "foodID": "000",
+        "properties": {
+            "foodPic": "https://www.jocooks.com/wp-content/uploads/2019/03/kung-pao-chicken-1-2.jpg",
+            "foodName": "Kong Pao Chicken",
+            "foodPrice": 12.99
+        }
+    },
+    {
+        "foodID": "001",
+        "properties": {
+            "foodPic": "https://kirbiecravings.com/wp-content/uploads/2018/12/mapo-tofu-4-1-700x857.jpg",
+            "foodName": "Mapo Tofu",
+            "foodPrice": 10.99
+        }
+    },
+    {
+        "foodID": "002",
+        "properties": {
+            "foodPic": "https://www.jessicagavin.com/wp-content/uploads/2018/09/fried-rice-7-600x900.jpg",
+            "foodName": "Fried Rice",
+            "foodPrice": 11.99
+        }
+    }
+]

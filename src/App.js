@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Route,Link  } from 'react-router-dom'
+// import './App.css'
 
+import Header from './Components/Header';
+import FoodList from './Components/FoodList';
+import Order from './Components/Order';
+import foodUrl from './FoodData.json';
+import OrderList from './Components/OrderList';
 
-import FoodList from './FoodList';
-import Order from './Order';
-import foodUrl from './FoodData.xml';
-import OrderList from './OrderList';
-
-
-
-import './App.css';
 
 class App extends Component {
-
 
   constructor(props) {
     super(props);
@@ -34,53 +30,15 @@ class App extends Component {
   // Load Data
   componentDidMount() {
 
-    document.addEventListener('DOMContentLoaded', () => {
-      let url = foodUrl;
-      fetch(url)
-        .then(response => response.text())
-        .then(data => {
-          let parser = new DOMParser();
-          let xml = parser.parseFromString(data, "application/xml");
+     this.setState(() => ({
+      dishes: foodUrl
+    }))
 
-          let dishes = xml.getElementsByTagName('dish');
-          let theFoods = [];
+    let newDishes = this.state.dishes.slice(0);
+    this.setState(() => ({
+      orders: newDishes
+    }))
 
-
-          for (let i = 0; i < dishes.length; i++) {
-
-            let theID = dishes[i].getAttribute("id");
-            let thePic = dishes[i].getElementsByTagName("foodPic")[0].textContent;
-            let theName = dishes[i].getElementsByTagName("foodName")[0].textContent;
-            let thePrice = dishes[i].getElementsByTagName("foodPrice")[0].textContent;
-
-            let theProps = {}
-
-            theProps.foodPic = thePic;
-            theProps.foodName = theName;
-            theProps.foodPrice = thePrice;
-            theProps.numOfitem = 0;
-
-            let theFood = {}
-            theFood.foodID = theID;
-            theFood.properties = theProps;
-
-            theFoods.push(theFood)
-
-          }
-
-          this.setState(() => ({
-            dishes: theFoods
-
-          }))
-          //console.log(this.state.dishes)
-
-          let newDishes = this.state.dishes.slice(0);
-          this.setState(() => ({
-            orders: newDishes
-          }))
-
-        })
-    })
   }
 
   // Add Food
@@ -95,13 +53,13 @@ class App extends Component {
     //console.log(totalItems.length)
 
 
-    if(inputNum === 0 || inputNum === ''){
+    if (inputNum === 0 || inputNum === '') {
       return alert("Please enter quantity!")
     }
-    else if (totalNum > 0 ) {
+    else if (totalNum > 0) {
 
       return alert("Can not order more than one item")
-      
+
     } else {
 
       let newOrders = this.state.orders.slice(0);
@@ -137,13 +95,13 @@ class App extends Component {
   }
 
   //Delete Order
-  onDelete =(foodID)=>{
+  onDelete = (foodID) => {
 
     let newOrders = this.state.orders.slice(0);
 
     newOrders.map(order => {
       if (order.foodID === foodID) {
-        
+
         order.properties.numOfitem = 0
       }
     })
@@ -162,7 +120,7 @@ class App extends Component {
 
         <Route exact path='/' render={() => (
           <div>
-            <h1>Food Order</h1>
+            <Header/>
             <div className="row">
               <div className="col-md-8">
 
@@ -172,7 +130,7 @@ class App extends Component {
               <div className="midLine"></div>
               <div className="col-md-3">
 
-                <OrderList dishes={this.state.dishes} onDelete={this.onDelete}/>
+                <OrderList dishes={this.state.dishes} onDelete={this.onDelete} />
 
                 <Link id="submit" to='/order' >
                   <button
@@ -188,9 +146,9 @@ class App extends Component {
 
         <Route path='/order' render={() => (
           <div>
-        <Order theorderID={this.state.orderID} />
-        <OrderList dishes={this.state.dishes} onDelete={this.onDelete}/>
-        </div>
+            <Order theorderID={this.state.orderID} />
+            <OrderList dishes={this.state.dishes} onDelete={this.onDelete} />
+          </div>
         )} />
 
       </div>
