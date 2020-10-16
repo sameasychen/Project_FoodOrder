@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Route,Link  } from 'react-router-dom'
-// import './App.css'
+import { Route, Link } from 'react-router-dom'
+import './App.css'
 
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 import FoodList from './Components/FoodList';
 import Order from './Components/Order';
 import foodUrl from './FoodData.json';
@@ -30,7 +31,7 @@ class App extends Component {
   // Load Data
   componentDidMount() {
 
-     this.setState(() => ({
+    this.setState(() => ({
       dishes: foodUrl
     }))
 
@@ -120,7 +121,7 @@ class App extends Component {
 
         <Route exact path='/' render={() => (
           <div>
-            <Header/>
+            <Header />
             <div className="row">
               <div className="col-md-8">
 
@@ -141,13 +142,16 @@ class App extends Component {
                 </Link>
               </div>
             </div>
+            <Footer />
           </div>
         )} />
 
         <Route path='/order' render={() => (
           <div>
+            <Header />
             <Order theorderID={this.state.orderID} />
             <OrderList dishes={this.state.dishes} onDelete={this.onDelete} />
+            <Footer />
           </div>
         )} />
 

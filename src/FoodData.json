@@ -22,5 +22,13 @@
             "foodName": "Fried Rice",
             "foodPrice": 11.99
         }
+    },
+    {
+        "foodID": "003",
+        "properties": {
+            "foodPic": "https://di-cdn.sfo2.digitaloceanspaces.com/cdn/533_acf9f641202e3eabbe887a1a4b990ae1.jpg",
+            "foodName": "Soft Drink",
+            "foodPrice": 1.50
+        }
     }
 ]

@@ -7,6 +7,17 @@
   pointer-events: none;
 } */
 
+
+/* Start Header  */
+
+.nav {
+  display: flex;
+  align-items: flex-end;
+  height: 90px;
+  
+}
+   /* End Header  */
+
 .dish{
   width: 200px;
 }
@@ -72,3 +83,9 @@
   }
 }
    /* End Header  */
+
+   /* Start Footer */
+  .footerContent{
+    max-width: 960px;
+  }
+   /* End Footer */
