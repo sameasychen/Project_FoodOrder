@@ -8,6 +8,33 @@ import Logo from '../Image/Logo.svg'
 
 const Header = props => {
 
+    let dataReload = document.querySelectorAll("[data-reload]")
+
+    console.log(dataReload)
+
+    let language = {
+        eng: {
+            welcome: "Welcome everyone"
+        },
+        fre:{
+            welcome: "Bienvenue"
+        }
+    }
+
+    
+    let Parag = document.querySelector(".hi")
+    if(window.location.hash){
+        if(window.location.hash==="#fre"){
+            Parag.textContent= language.fre.welcome;
+        }
+    }
+
+    // for(let i=0; i<= dataReload.length; i++){
+    //     dataReload[i].onclick = ()=>{
+    //         window.location.reload()
+    //     }
+    // }
+
     return (
 
         <div className="Header">
@@ -15,7 +42,12 @@ const Header = props => {
                 <div className="col-sm-2">
                     <img className="m-2" src={Logo} width="100" alt="Restaurant Logo" />
                 </div>
-                <div className="col-sm-8"></div>
+                <div className="col-sm-8">
+                    <a href="#eng" data-reload>English</a>
+                    <a href="#fre" data-reload>French</a>
+                    <p id="hi">Welcome everyone!</p>
+
+                </div>
 
                 <div className="nav col-sm-2">
 
