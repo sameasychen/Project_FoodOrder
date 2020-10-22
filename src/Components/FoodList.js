@@ -8,10 +8,9 @@ const FoodList = props => {
 
             <div className="App">
 
-                
                 <ol className="row">
 
-                    {props.dishes.map(data => <FoodItem key={data.foodID} dish={data} onaddDish={props.onaddDish} />)}
+                    {props.dishes.map(data => <FoodItem className="col-lg-3" key={data.foodID} dish={data} onaddDish={props.onaddDish} />)}
 
                 </ol>
             </div>

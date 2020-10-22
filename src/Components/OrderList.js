@@ -23,7 +23,7 @@ class OrderList extends Component {
     render() {
 
         //Calculate Total Price
-        let orderedFood = this.props.dishes.filter(data => {
+        let orderedFood = this.props.orders.filter(data => {
             return data.properties.numOfitem > 0
         })
 

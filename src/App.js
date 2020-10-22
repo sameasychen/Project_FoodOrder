@@ -4,7 +4,8 @@ import './App.css'
 
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import FoodList from './Components/FoodList';
+import MainMenu from './Components/MainMenu';
+import Appetizers from './Components/Appetizers';
 import Order from './Components/Order';
 import foodUrl from './FoodData.json';
 import OrderList from './Components/OrderList';
@@ -25,20 +26,37 @@ class App extends Component {
 
     this.addDish = this.addDish.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.refreshAllDishes = this.refreshAllDishes.bind(this);
 
   }
 
   // Load Data
   componentDidMount() {
 
-    this.setState(() => ({
-      dishes: foodUrl
-    }))
+    this.refreshAllDishes()
+  }
 
-    let newDishes = this.state.dishes.slice(0);
-    this.setState(() => ({
-      orders: newDishes
-    }))
+  refreshAllDishes = () => {
+
+    let loadDish = new Promise((resolve, reject) => (
+      setTimeout(() => (
+        resolve("success")
+      ))
+    ))
+
+    loadDish.then(
+
+      this.setState(() => ({
+        dishes: foodUrl
+      }))
+
+    )
+      .then(
+
+        this.setState(() => ({
+          orders: foodUrl
+        }))
+      )
 
   }
 
@@ -46,27 +64,23 @@ class App extends Component {
 
   addDish = (inputNum, foodID) => {
 
-    let totalItems = this.state.orders.filter((order) => {
-      return order.properties.numOfitem !== 0
-    })
-    //console.log(totalItems)
-    let totalNum = totalItems.length
-    //console.log(totalItems.length)
-
-
     if (inputNum === 0 || inputNum === '') {
       return alert("Please enter quantity!")
     }
-    else if (totalNum > 0) {
+    // else if (totalNum > 0) {
 
-      return alert("Can not order more than one item")
+    //   return alert("Can not order more than one item")
 
-    } else {
+    // }
+    else {
 
-      let newOrders = this.state.orders.slice(0);
+      let newOrders = this.state.dishes.slice(0);
 
       newOrders.map(order => {
         if (order.foodID === foodID) {
+          if (!order.properties.numOfitem) {
+            order.properties.numOfitem = 0
+          }
           let increment = parseInt(inputNum)
           order.properties.numOfitem += increment
         }
@@ -116,32 +130,25 @@ class App extends Component {
 
   render() {
 
+    console.log(this.state.dishes)
+
+    console.log(this.state.orders)
+
     return (
       <div className="App">
 
         <Route exact path='/' render={() => (
           <div>
             <Header />
-            <div className="row">
-              <div className="col-md-8">
+            <MainMenu dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} />
+            <Footer />
+          </div>
+        )} />
 
-                <FoodList dishes={this.state.dishes} onaddDish={this.addDish} />
-
-              </div>
-              <div className="midLine"></div>
-              <div className="col-md-3">
-
-                <OrderList dishes={this.state.dishes} onDelete={this.onDelete} />
-
-                <Link id="submit" to='/order' >
-                  <button
-                    className="mx-auto btn btn-success"
-                    onClick={() => this.onSubmit()}>
-                    Submit Order
-                  </button>
-                </Link>
-              </div>
-            </div>
+        <Route exact path='/Appetizers' render={() => (
+          <div>
+            <Header />
+            <Appetizers dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} />
             <Footer />
           </div>
         )} />

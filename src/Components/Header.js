@@ -10,7 +10,7 @@ const Header = props => {
 
     let dataReload = document.querySelectorAll("[data-reload]")
 
-    console.log(dataReload)
+    //console.log(dataReload)
 
     let language = {
         eng: {
@@ -43,9 +43,9 @@ const Header = props => {
                     <img className="m-2" src={Logo} width="100" alt="Restaurant Logo" />
                 </div>
                 <div className="col-sm-8">
-                    <a href="#eng" data-reload>English</a>
+                    {/* <a href="#eng" data-reload>English</a>
                     <a href="#fre" data-reload>French</a>
-                    <p id="hi">Welcome everyone!</p>
+                    <p id="hi">Welcome everyone!</p> */}
 
                 </div>
 
@@ -54,8 +54,7 @@ const Header = props => {
                     <Link to='/order' className="mx-auto">
                         <FontAwesomeIcon icon={faCartPlus} color="grey" size="2x" alt="Shopping Cart"></FontAwesomeIcon>
                     </Link>
-
-                </div>
+                 </div>
 
             </div>
             <hr />
