@@ -6,8 +6,11 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import MainMenu from './Components/MainMenu';
 import Appetizers from './Components/Appetizers';
+import Chicken from './Components/Chicken';
+import Drink from './Components/Drink';
 import Order from './Components/Order';
 import foodUrl from './FoodData.json';
+import MenuCategory from './MenuCategory.json';
 import OrderList from './Components/OrderList';
 
 
@@ -20,7 +23,8 @@ class App extends Component {
 
       dishes: [],
       orders: [],
-      orderID: ''
+      orderID: '',
+      menu: []
 
     };
 
@@ -55,6 +59,12 @@ class App extends Component {
 
         this.setState(() => ({
           orders: foodUrl
+        }))
+      )
+      .then(
+
+        this.setState(() => ({
+          menu: MenuCategory
         }))
       )
 
@@ -134,13 +144,16 @@ class App extends Component {
 
     console.log(this.state.orders)
 
+    console.log(this.state.menu)
+
+
     return (
       <div className="App">
 
         <Route exact path='/' render={() => (
           <div>
             <Header />
-            <MainMenu dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} />
+            <MainMenu menu={this.state.menu} orders={this.state.orders} onaddDish={this.addDish} />
             <Footer />
           </div>
         )} />
@@ -148,7 +161,23 @@ class App extends Component {
         <Route exact path='/Appetizers' render={() => (
           <div>
             <Header />
-            <Appetizers dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} />
+            <Appetizers dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} />
+            <Footer />
+          </div>
+        )} />
+
+        <Route exact path='/Chicken' render={() => (
+          <div>
+            <Header />
+            <Chicken dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} />
+            <Footer />
+          </div>
+        )} />
+
+        <Route exact path='/Drink' render={() => (
+          <div>
+            <Header />
+            <Drink dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} />
             <Footer />
           </div>
         )} />
@@ -157,7 +186,7 @@ class App extends Component {
           <div>
             <Header />
             <Order theorderID={this.state.orderID} />
-            <OrderList dishes={this.state.dishes} onDelete={this.onDelete} />
+            <OrderList orders={this.state.orders} onDelete={this.onDelete} />
             <Footer />
           </div>
         )} />

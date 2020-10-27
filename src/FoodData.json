@@ -4,7 +4,7 @@
         "properties": {
             "foodPic": "https://www.jocooks.com/wp-content/uploads/2019/03/kung-pao-chicken-1-2.jpg",
             "foodName": "Kong Pao Chicken",
-            "Category": "Meat",
+            "Category": "Chicken",
             "foodPrice": 12.99
         }
     },
@@ -31,7 +31,7 @@
         "properties": {
             "foodPic": "https://images.squarespace-cdn.com/content/v1/51f7fb1ee4b03d20c9b4c34b/1376077963280-X2HBK3FA685FXEQV105N/ke17ZwdGBToddI8pDm48kOZU6e6IUnD6f-59C09FR3RZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpw14Cz0wJgMJXkTPtgmZgN-r4-Mfizl6xDwlehOnOT7zEDztjSeXGAR00SNL48b8Sc/image-asset.jpeg?format=500w",
             "foodName": "General Tao Chicken",
-            "Category": "Meat",
+            "Category": "Chicken",
             "foodPrice": 12.99
         }
     },

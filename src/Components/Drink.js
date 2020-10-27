@@ -4,10 +4,10 @@ import FoodList from './FoodList';
 import RightCol from './RightCol';
 
 
-const Appetizers = props => {
+const Drink = props => {
 
-    const appetizers = props.dishes.filter((data) => {
-        return data.properties.Category == "Appetizers"
+    const drinks = props.dishes.filter((data) => {
+        return data.properties.Category == "Drink"
     })
 
     return (
@@ -15,7 +15,7 @@ const Appetizers = props => {
         <div className="row">
             <div className="col-md-8">
 
-                <FoodList dishes={appetizers} onaddDish={props.onaddDish} />
+                <FoodList dishes={drinks} onaddDish={props.onaddDish} />
 
             </div>
             <div className="midLine"></div>
@@ -29,4 +29,4 @@ const Appetizers = props => {
     );
 }
 
-export default Appetizers;
+export default Drink;
