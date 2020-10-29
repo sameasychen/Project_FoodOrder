@@ -1,7 +1,8 @@
+export const MenuCategory =
 [
     {
         "categoryID": "001",
-        "foodPic": "https://www.jocooks.com/wp-content/uploads/2019/03/kung-pao-chicken-1-2.jpg",
+        "foodPic": require("https://www.jocooks.com/wp-content/uploads/2012/06/sticky-chinese-chicken-wings-1-12-768x960.jpg"),
         "categoryName": "Chicken"
     },
     {

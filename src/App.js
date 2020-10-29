@@ -9,8 +9,10 @@ import Appetizers from './Components/Appetizers';
 import Chicken from './Components/Chicken';
 import Drink from './Components/Drink';
 import Order from './Components/Order';
+import ContactUs from './Components/ContactUs';
+
 import foodUrl from './FoodData.json';
-import MenuCategory from './MenuCategory.json';
+import { MenuCategory } from './MenuCategory';
 import OrderList from './Components/OrderList';
 
 
@@ -187,6 +189,14 @@ class App extends Component {
             <Header />
             <Order theorderID={this.state.orderID} />
             <OrderList orders={this.state.orders} onDelete={this.onDelete} />
+            <Footer />
+          </div>
+        )} />
+
+        <Route path='/contactus' render={() => (
+          <div>
+            <Header />
+            <ContactUs/>
             <Footer />
           </div>
         )} />

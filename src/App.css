@@ -1,14 +1,17 @@
 /* .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 } */
 
+.maxwidth{
+  width: 100%;
+}
+
+.contentwidth{
+  max-width: 960px;
+}
 
 /* Start Header  */
+
 
 .nav {
   display: flex;
@@ -18,9 +21,44 @@
 }
    /* End Header  */
 
-.dish{
-  width: 200px;
+
+   /* Start Dish */
+
+.Content{
+background-color: rgb(243, 243, 243);
 }
+
+.dishText{
+  margin: 0px 1px
+}
+
+.dish{
+  background-color: white;
+  width: 200px;
+  margin: 10px;
+  border: 1px solid rgb(224, 224, 224);
+  
+}
+
+.dish:hover{
+  border: 1px solid rgb(179, 179, 179);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.picImg{
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+/* .picText{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+ 
+  border: 1px solid
+} */
 
 .midLine{
   width: 1px;
@@ -37,6 +75,7 @@
   /* float:right; */
 }
 
+/* End Dish */
 
 
 /********** Extra small devices only **********/
@@ -82,10 +121,31 @@
     text-transform: uppercase;
   }
 }
-   /* End Header  */
 
-   /* Start Footer */
-  .footerContent{
-    max-width: 960px;
-  }
-   /* End Footer */
+/* Start Header */
+.NavLink{
+  width: 150px;
+}
+
+/* .LogoElement{
+  position: absolute;
+} */
+
+/* End Header  */
+
+
+/* Start Footer */
+
+   
+   
+/* End Footer */
+
+
+/* Start Contact Us */
+.contactus{
+  max-width: 960px;
+}
+
+.hours{
+  background-color: rgb(243, 243, 243);
+}

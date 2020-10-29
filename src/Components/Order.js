@@ -8,12 +8,12 @@ class Order extends Component {
         return (
 
             <div className="App">
-                <Link to='/'>
+                {/* <Link to='/'>
                     <button
                         className="mx-auto btn btn-success">
                         Home
                     </button>
-                </Link>
+                </Link> */}
                 <h2>Order Confirmation</h2>
                 <p>Order ID: {this.props.theorderID}</p>
                 

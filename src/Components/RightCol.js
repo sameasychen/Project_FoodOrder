@@ -7,7 +7,7 @@ const RightCol = props => {
 
         return (
 
-            <div>
+            <div className="container-fluid border col-lg-2">
 
                 <OrderList orders={props.orders} onDelete={props.onDelete} />
 

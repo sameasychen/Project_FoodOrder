@@ -20,17 +20,24 @@ class MenuItem extends Component {
 
         const menuPath = `/${this.props.menu.categoryName}`
 
+        const menu = this.props.menu
+
         return (
-            <div className="dish inline-block mt=5">
-                <Link id="submit" to= {menuPath} >
-                <div className="dishPic my-5">
+            <div className="dish inline-block">
+                <Link className="dishLink" to={menuPath} >
+
                     <img
-                        className="rounded mx-auto d-block"
-                        src={this.props.menu.foodPic}
-                        alt={this.props.menu.categoryName}
+                        className="picImg rounded mx-auto d-block"
+                        src={menu.foodPic}
+                        alt={menu.categoryName}
                         height='200' />
-                </div>
-                <p className="text-center">{this.props.menu.categoryName}</p>
+
+                    <p className="picText text-center">
+                        {menu.categoryName}
+                    </p>
+
+
+
                 </Link>
             </div >
         );

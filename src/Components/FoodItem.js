@@ -37,15 +37,18 @@ class FoodItem extends Component {
 
         return (
             <div className="dish inline-block mt=5">
-                <div className="dishPic my-5">
+                <div className="dishPic">
                 <img 
-                className="rounded mx-auto d-block"
+                className="picImg rounded mx-auto d-block"
                  src={this.props.dish.properties.foodPic} 
                  alt={this.props.dish.properties.foodName} 
                  height='150' />
                  </div>
-                <p className="text-center">{this.props.dish.properties.foodName}</p>
-                <p className="text-center">${this.props.dish.properties.foodPrice}</p>
+
+                <tr className="dishText row">
+                        <td className="col-8">{this.props.dish.properties.foodName}</td>
+                        <td className="dishPrice text-success col-4  text-right"> ${this.props.dish.properties.foodPrice}</td>
+                </tr>
 
                 <div className="row">
                     <div className="col-7">

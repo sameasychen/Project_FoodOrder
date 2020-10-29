@@ -12,18 +12,18 @@ const Chicken = props => {
 
     return (
 
-        <div className="row">
-            <div className="col-md-8">
+        <div className="Content row mx-auto contentwidth py-3">
+            <div className="col-lg-9 container-fluid">
 
                 <FoodList dishes={chickens} onaddDish={props.onaddDish} />
 
             </div>
             <div className="midLine"></div>
-            <div className="col-md-3">
+            
 
                 <RightCol orders={props.orders} onDelete={props.onDelete} onSubmit={props.onSubmit}/>
 
-            </div>
+           
 
         </div>
     );

@@ -9,10 +9,10 @@ const MainMenu = props => {
 
     return (
 
-        <div className="row">
-            <div className="col-md-8">
+        <div className="Content row mx-auto contentwidth py-3">
+            <div className="col-lg-9 container-fluid">
 
-                <ol className="row">
+                <ol className="row mx-auto container-fluid">
 
                     {props.menu.map(data => <MenuItem className="col-lg-3" key={data.categoryID} menu={data} onaddDish={props.onaddDish} />)}
 
@@ -20,11 +20,11 @@ const MainMenu = props => {
 
             </div>
             <div className="midLine"></div>
-            <div className="col-md-3">
 
-                <RightCol orders={props.orders} onDelete={props.onDelete} onSubmit={props.onSubmit}/>
 
-            </div>
+            <RightCol orders={props.orders} onDelete={props.onDelete} onSubmit={props.onSubmit} />
+
+
         </div>
     );
 }

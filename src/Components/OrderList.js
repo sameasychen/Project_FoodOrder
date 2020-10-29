@@ -35,12 +35,16 @@ class OrderList extends Component {
             totalPrice += eachPrice;
         }
 
+        let taxes = totalPrice * 0.13;
+
+        let afterTaxPrice = totalPrice + taxes
+
         return (
 
-            <div className="App">
+            <div className="maxwidth">
 
-                <h3 className="font-weight-bold">Your order</h3>
-                <br></br>
+                <h3 className="font-weight-bold text-center border-bottom">Your order</h3>
+                
                 <ol className="mt-3">
 
                     {orderedFood.map(data =>
@@ -57,7 +61,19 @@ class OrderList extends Component {
                     )}
 
                 </ol>
-                <p className="font-weight-bold">Total Price: {totalPrice}</p>
+                <div>
+                    <tr className="row">
+                        <td className="col">Taxes:</td>
+                        <td  className="col  text-right">$ {taxes}</td>
+
+                    </tr>
+                    <tr  className="row">
+                        <td className="col">Total Price:</td>
+                        <td className="col  text-right">$ {afterTaxPrice}</td>
+
+                    </tr>
+
+                </div>
             </div>
         )
     }

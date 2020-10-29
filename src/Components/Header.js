@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 
-import Logo from '../Image/Logo.svg'
+import Logo from '../Image/Logo.jpg'
 
 const Header = props => {
 
@@ -16,16 +16,16 @@ const Header = props => {
         eng: {
             welcome: "Welcome everyone"
         },
-        fre:{
+        fre: {
             welcome: "Bienvenue"
         }
     }
 
-    
+
     let Parag = document.querySelector(".hi")
-    if(window.location.hash){
-        if(window.location.hash==="#fre"){
-            Parag.textContent= language.fre.welcome;
+    if (window.location.hash) {
+        if (window.location.hash === "#fre") {
+            Parag.textContent = language.fre.welcome;
         }
     }
 
@@ -37,28 +37,28 @@ const Header = props => {
 
     return (
 
-        <div className="Header">
-            <div className="row">
-                <div className="col-sm-2">
-                    <img className="m-2" src={Logo} width="100" alt="Restaurant Logo" />
-                </div>
-                <div className="col-sm-8">
-                    {/* <a href="#eng" data-reload>English</a>
-                    <a href="#fre" data-reload>French</a>
-                    <p id="hi">Welcome everyone!</p> */}
+        <div className="Header border">
 
-                </div>
-
-                <div className="nav col-sm-2">
-
-                    <Link to='/order' className="mx-auto">
-                        <FontAwesomeIcon icon={faCartPlus} color="grey" size="2x" alt="Shopping Cart"></FontAwesomeIcon>
-                    </Link>
-                 </div>
-
+            <div className="contentwidth mx-auto row">
+                <Link className="LogoElement" to="./" >
+                    <img className="m-2 rounded" src={Logo} width="250" alt="Restaurant Logo" />
+                </Link>
             </div>
-            <hr />
-
+            <div className="bg-dark">
+                <div className="Nav contentwidth mx-auto">
+                    <div className="d-flex justify-content-end align-items-center">
+                        <Link className="NavLink text-light p-2" to='/'>
+                            Home
+                        </Link>
+                        <Link className="NavLink text-light p-2" to='/contactus'>
+                            Contact Us
+                        </Link>
+                        <Link className="NavLink p-2" to='/order'>
+                            <FontAwesomeIcon icon={faCartPlus} color="white" size="2x" alt="Shopping Cart"></FontAwesomeIcon>
+                        </Link>
+                    </div>
+                </div>
+            </div>
 
         </div>
     );

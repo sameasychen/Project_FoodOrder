@@ -10,7 +10,7 @@ const Header = props => {
 
         <div className="bg-dark">
 
-            <div className="footerContent row text-light mx-auto">
+            <div className="contentwidth row text-light mx-auto py-4">
                 <div className="col-md-5">
                     <p>WELCOME TO OUR RESTAURANT</p>
 
@@ -28,7 +28,7 @@ const Header = props => {
                 <div className="col-md-4">
                     <p>NAVIGATION</p>
                     <div>
-                        <Link to='/order'>
+                        <Link to='/'>
                             Menu
                     </Link>
                     </div>
@@ -38,8 +38,8 @@ const Header = props => {
                     </Link>
                     </div>
                     <div>
-                        <Link to='/order'>
-                            Reviews
+                        <Link to='/contactus'>
+                            Contact Us
                     </Link>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ const Header = props => {
                 </div>
 
             </div>
-            <p className="text-center text-muted font-weight-light">Copyright @2020, all rights reserved</p>
+            <p className="text-center text-muted my-0"><small>Copyright @2020, all rights reserved</small></p>
 
         </div>
     );
