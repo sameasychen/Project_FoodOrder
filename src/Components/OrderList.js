@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
+
 
 class OrderList extends Component {
 
@@ -6,13 +12,21 @@ class OrderList extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            numOfitem: ''
-
-        };
-
         this.deleteFood = this.deleteFood.bind(this);
-       
+        this.addFood = this.addFood.bind(this);
+        this.minusFood = this.minusFood.bind(this);
+
+
+    }
+
+    //Add Food
+    addFood = (foodID) => {
+        this.props.onaddDish(foodID)
+    }
+
+    // Minus Food
+    minusFood = (foodID) => {
+        this.props.onminusDish(foodID)
     }
 
     //Delete Food
@@ -27,53 +41,70 @@ class OrderList extends Component {
             return data.properties.numOfitem > 0
         })
 
-        let totalPrice = 0
+        let beforeTaxTotal = 0
 
         for (let i = 0; i < orderedFood.length; i++) {
 
             let eachPrice = orderedFood[i].properties.numOfitem * orderedFood[i].properties.foodPrice
-            totalPrice += eachPrice;
+            beforeTaxTotal += eachPrice;
         }
 
-        let taxes = totalPrice * 0.13;
+        let taxesTemp = beforeTaxTotal * 0.13;
 
-        let afterTaxPrice = totalPrice + taxes
+        let taxes = taxesTemp.toFixed(2);
+    
+        let afterTaxTotalTemp = beforeTaxTotal + taxesTemp
+
+        let totalPrice = afterTaxTotalTemp.toFixed(2);
 
         return (
 
-            <div className="maxwidth">
+            <div className="maxwidth  px-4 mx-auto">
 
-                <h3 className="font-weight-bold text-center border-bottom">Your order</h3>
-                
-                <ol className="mt-3">
+                <h4 className="font-weight-bold text-center border-bottom">Your order</h4>
+
+                <ul className="orderUl px-0 mt-3">
 
                     {orderedFood.map(data =>
-                        <li key={data.foodID}>
-                            <span className="px-3">
-                            {data.properties.foodName}
+
+                        <li className="row" key={data.foodID}>
+                            <button className="addDish col-sm-1 px-0" onClick={() => this.addFood(data.foodID)}>
+                                <FontAwesomeIcon icon={faPlusCircle} size="0.3x" alt="Add One"></FontAwesomeIcon>
+                            </button>
+
+                            <button className="minusDish col-sm-1 px-0" onClick={() => this.minusFood(data.foodID)}>
+                                <FontAwesomeIcon icon={faMinusCircle} size="0.3x" alt="Minus One"></FontAwesomeIcon>
+                            </button>
+
+                            <span className="px-3 col-sm-5 px-0">
+                                {data.properties.foodName}
                             </span>
-                            <span className="px-3">
+
+                            <span className="px-3 col-sm-4 px-0 text-right">
                                 {data.properties.foodPrice} X {data.properties.numOfitem}
                             </span>
-                            <button className="del" onClick={() => this.deleteFood(data.foodID)}>
-                                X</button>
+
+                            <button className="del col-sm-1 px-0" onClick={() => this.deleteFood(data.foodID)}>
+                                <FontAwesomeIcon icon={faTrashAlt} size="0.3x" alt="Minus One">
+                                </FontAwesomeIcon>
+                            </button>
                         </li>
+
                     )}
 
-                </ol>
-                <div>
-                    <tr className="row">
-                        <td className="col">Taxes:</td>
-                        <td  className="col  text-right">$ {taxes}</td>
+                </ul>
 
-                    </tr>
-                    <tr  className="row">
-                        <td className="col">Total Price:</td>
-                        <td className="col  text-right">$ {afterTaxPrice}</td>
+                <tr className="row">
+                    <td className="col">Taxes:</td>
+                    <td className="col  text-right">$ {taxes}</td>
 
-                    </tr>
+                </tr>
+                <tr className="row">
+                    <td className="col">Total Price:</td>
+                    <td className="col  text-right">$ {totalPrice}</td>
 
-                </div>
+                </tr>
+
             </div>
         )
     }

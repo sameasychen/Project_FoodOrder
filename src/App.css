@@ -10,6 +10,14 @@
   max-width: 960px;
 }
 
+p{
+  font-size: small;
+}
+
+span{
+  font-size: small;
+}
+
 /* Start Header  */
 
 
@@ -28,21 +36,35 @@
 background-color: rgb(243, 243, 243);
 }
 
-.dishText{
+/* .dishText{
   margin: 0px 1px
-}
+} */
 
 .dish{
   background-color: white;
-  width: 200px;
+  width: 170px;
   margin: 10px;
   border: 1px solid rgb(224, 224, 224);
-  
+  transition-duration: 0.3s;
 }
 
 .dish:hover{
   border: 1px solid rgb(179, 179, 179);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.dishLink:hover{
+  text-decoration:none;
+
+}
+
+.dishName{
+  font-weight: 500;
+}
+
+.dishPrice{
+  font-weight: 500;
 }
 
 .picImg{
@@ -51,32 +73,61 @@ background-color: rgb(243, 243, 243);
   height: auto;
 }
 
-/* .picText{
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  z-index: 10;
- 
-  border: 1px solid
-} */
-
-.midLine{
-  width: 1px;
-  background-color: black;
+.picText{
+  color: black;
+  font-weight: 500;
+  font-size: medium;
 }
 
+.picText:hover{
+  color: black;
+}
+
+/* .midLine{
+  width: 1px;
+  background-color: black;
+} */
+
 .del{
-  background: #8a1919;
-  color:#fff;
+  background-color: rgb(243, 243, 243);
+  color:#ac0000;
   border:none;
-  padding:5px 12px;
-  border-radius:50%;
-  cursor: point;
+
   /* float:right; */
+}
+
+.addDish{
+  background-color: rgb(243, 243, 243);
+  
+  color:#00ac17;
+
+  border:none;
+
+}
+
+.addDish.hover{
+  
+
+  color:#005c0c;
+
+  border:1px solid rgb(31, 17, 17);
+  
+} 
+
+.minusDish{
+  background-color: rgb(243, 243, 243);
+  color:#ac0000;
+  border:none;
+
 }
 
 /* End Dish */
 
+/* Start Order */
+.orderUl{
+  list-style-type: none;
+}
+/* End Order */
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
@@ -149,3 +200,21 @@ background-color: rgb(243, 243, 243);
 .hours{
   background-color: rgb(243, 243, 243);
 }
+
+/* Start Order Info */
+
+.validateNote{
+  color: red;
+  font-size: small;
+  line-height:100%;
+}
+
+.textArea{
+  resize: none;
+}
+
+.theForm{
+  border:1px solid rgb(0, 0, 0);
+
+}
+/* Start Order Info */

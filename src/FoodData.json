@@ -13,7 +13,7 @@
         "properties": {
             "foodPic": "https://kirbiecravings.com/wp-content/uploads/2018/12/mapo-tofu-4-1-700x857.jpg",
             "foodName": "Mapo Tofu",
-            "Category": "Appetizers",
+            "Category": "Vegies",
             "foodPrice": 10.99
         }
     },
@@ -21,8 +21,8 @@
         "foodID": "002",
         "properties": {
             "foodPic": "https://www.jessicagavin.com/wp-content/uploads/2018/09/fried-rice-7-600x900.jpg",
-            "foodName": "Wonton Soup",
-            "Category": "Appetizers",
+            "foodName": "Fried Rice",
+            "Category": "Rice",
             "foodPrice": 8.99
         }
     },
@@ -49,7 +49,7 @@
         "properties": {
             "foodPic": "https://www.dinneratthezoo.com/wp-content/uploads/2019/02/vegetable-stir-fry-3.jpg",
             "foodName": "Stir Fry Vegies",
-            "Category": "Appetizers",
+            "Category": "Vegies",
             "foodPrice": 7.99
         }
     },
@@ -58,6 +58,33 @@
         "properties": {
             "foodPic": "https://di-cdn.sfo2.digitaloceanspaces.com/cdn/533_acf9f641202e3eabbe887a1a4b990ae1.jpg",
             "foodName": "Soft Drink",
+            "Category": "Drink",
+            "foodPrice": 1.50
+        }
+    },
+    {
+        "foodID": "007",
+        "properties": {
+            "foodPic": "https://kirbiecravings.com/wp-content/uploads/2019/02/wonton-soup-8-700x648.jpg",
+            "foodName": "Wonton Soup",
+            "Category": "Soups",
+            "foodPrice": 5.50
+        }
+    },
+    {
+        "foodID": "008",
+        "properties": {
+            "foodPic": "https://www.gimmesomeoven.com/wp-content/uploads/2017/01/Chinese-Hot-and-Sour-Soup-Recipe-1-2-1100x1627.jpg",
+            "foodName": "Hot & Sour Soup",
+            "Category": "Soups",
+            "foodPrice": 5.50
+        }
+    },
+    {
+        "foodID": "009",
+        "properties": {
+            "foodPic": "https://www.newyorkbeverage.com/wp-content/uploads/2020/07/ariz11ozacn.png",
+            "foodName": "Green Tea",
             "Category": "Drink",
             "foodPrice": 1.50
         }

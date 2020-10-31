@@ -1,24 +1,34 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+import OrderInfo from './OrderInfo';
+import RightCol from './RightCol';
+
+
+
 class Order extends Component {
+
+    constructor(props) {
+        super(props);
+
+
+
+    }
 
     render() {
 
+        let props = this.props;
+
         return (
 
-            <div className="App">
-                {/* <Link to='/'>
-                    <button
-                        className="mx-auto btn btn-success">
-                        Home
-                    </button>
-                </Link> */}
-                <h2>Order Confirmation</h2>
-                <p>Order ID: {this.props.theorderID}</p>
-                
+            <div className="Content row mx-auto contentwidth py-3">
+                <OrderInfo theorderID={props.theorderID}/>
 
-            </div>
+
+            <RightCol orders={props.orders} onDelete={props.onDelete} onSubmit={props.onSubmit} onaddDish={props.onaddDish} onminusDish={props.onminusDish}/>
+
+
+        </div>
         );
     }
 }

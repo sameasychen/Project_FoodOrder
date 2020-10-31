@@ -11,62 +11,44 @@ class FoodItem extends Component {
 
         };
 
-        this.handleChange = this.handleChange.bind(this);
         this.addButton = this.addButton.bind(this);
 
     }
 
-    //Input Handler
-    handleChange = (event) => {
-        const { name, value } = event.target
-        this.setState({ [name]: value })
-    }
+
 
     //Add Button
-    addButton = (foodNum, IDoffood) => {
-        this.props.onaddDish(foodNum, IDoffood)
-        this.setState(() => ({
-
-            numOfitem: '',
-      
-          }))
+    addButton = (IDoffood) => {
+        this.props.onaddDish(IDoffood)
 
     }
 
     render() {
 
         return (
-            <div className="dish inline-block mt=5">
-                <div className="dishPic">
-                <img 
-                className="picImg rounded mx-auto d-block"
-                 src={this.props.dish.properties.foodPic} 
-                 alt={this.props.dish.properties.foodName} 
-                 height='150' />
-                 </div>
+            <div className="col-sm-4">
 
-                <tr className="dishText row">
-                        <td className="col-8">{this.props.dish.properties.foodName}</td>
-                        <td className="dishPrice text-success col-4  text-right"> ${this.props.dish.properties.foodPrice}</td>
-                </tr>
-
-                <div className="row">
-                    <div className="col-7">
-                        <input
-                            className="form-control"
-                            type="number"
-                            placeholder="0"
-                            name="numOfitem"
-                            value={this.state.numOfitem}
-                            onChange={this.handleChange}
-                        />
+                <div className="dish inline-block mt=5">
+                    <div className="dishPic">
+                        <img
+                            className="picImg rounded mx-auto d-block"
+                            src={this.props.dish.properties.foodPic}
+                            alt={this.props.dish.properties.foodName}
+                            height='150' />
                     </div>
-                    <div className="col5">
-                        <button className="btn btn-success" onClick={() => this.addButton(this.state.numOfitem, this.props.dish.foodID)}>Add</button>
-                    </div>
-                </div>
 
-            </div >
+                    <div className="dishName text-center">{this.props.dish.properties.foodName}</div>
+
+                    <tr className="row">
+                        <td className="dishPrice text-success text-center col-7">
+                            ${this.props.dish.properties.foodPrice}
+                        </td>
+                        <td className="col-5">
+                            <button className="btn btn-sm btn-success" onClick={() => this.addButton(this.props.dish.foodID)}>Add</button>
+                        </td>
+                    </tr>
+                </div >
+            </div>
         );
     }
 }

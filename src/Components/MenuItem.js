@@ -9,11 +9,6 @@ class MenuItem extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            numOfitem: ''
-
-        };
-
     }
 
     render() {
@@ -23,6 +18,7 @@ class MenuItem extends Component {
         const menu = this.props.menu
 
         return (
+            <div className="col-sm-4">
             <div className="dish inline-block">
                 <Link className="dishLink" to={menuPath} >
 
@@ -32,7 +28,7 @@ class MenuItem extends Component {
                         alt={menu.categoryName}
                         height='200' />
 
-                    <p className="picText text-center">
+                    <p className="picText text-center mb-0">
                         {menu.categoryName}
                     </p>
 
@@ -40,6 +36,7 @@ class MenuItem extends Component {
 
                 </Link>
             </div >
+            </div>
         );
     }
 }
