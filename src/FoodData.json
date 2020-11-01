@@ -2,7 +2,7 @@
     {
         "foodID": "000",
         "properties": {
-            "foodPic": "https://www.jocooks.com/wp-content/uploads/2019/03/kung-pao-chicken-1-2.jpg",
+            "foodPic": "https://thewoksoflife.com/wp-content/uploads/2019/04/kung-pao-chicken-11-500x500.jpg",
             "foodName": "Kong Pao Chicken",
             "Category": "Chicken",
             "foodPrice": 12.99
@@ -11,7 +11,7 @@
     {
         "foodID": "001",
         "properties": {
-            "foodPic": "https://kirbiecravings.com/wp-content/uploads/2018/12/mapo-tofu-4-1-700x857.jpg",
+            "foodPic": "https://healthynibblesandbits.com/wp-content/uploads/2019/10/Vegetarian-Mapo-Tofu-FF.jpg",
             "foodName": "Mapo Tofu",
             "Category": "Vegies",
             "foodPrice": 10.99
@@ -20,7 +20,7 @@
     {
         "foodID": "002",
         "properties": {
-            "foodPic": "https://www.jessicagavin.com/wp-content/uploads/2018/09/fried-rice-7-600x900.jpg",
+            "foodPic": "https://www.thecountrycook.net/wp-content/uploads/2012/10/Easy-Homemade-Fried-Rice.jpg",
             "foodName": "Fried Rice",
             "Category": "Rice",
             "foodPrice": 8.99
@@ -29,7 +29,7 @@
     {
         "foodID": "003",
         "properties": {
-            "foodPic": "https://images.squarespace-cdn.com/content/v1/51f7fb1ee4b03d20c9b4c34b/1376077963280-X2HBK3FA685FXEQV105N/ke17ZwdGBToddI8pDm48kOZU6e6IUnD6f-59C09FR3RZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpw14Cz0wJgMJXkTPtgmZgN-r4-Mfizl6xDwlehOnOT7zEDztjSeXGAR00SNL48b8Sc/image-asset.jpeg?format=500w",
+            "foodPic": "https://www.cool-simple.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/b/lb020_general_tao_web.jpg",
             "foodName": "General Tao Chicken",
             "Category": "Chicken",
             "foodPrice": 12.99
@@ -38,7 +38,7 @@
     {
         "foodID": "004",
         "properties": {
-            "foodPic": "https://rasamalaysia.com/wp-content/uploads/2019/04/spring-rolls-new.jpg",
+            "foodPic": "https://rasamalaysia.com/wp-content/uploads/2019/04/spring-rolls-thumb-new.jpg",
             "foodName": "Spring Roll",
             "Category": "Appetizers",
             "foodPrice": 8.99
@@ -47,7 +47,7 @@
     {
         "foodID": "005",
         "properties": {
-            "foodPic": "https://www.dinneratthezoo.com/wp-content/uploads/2019/02/vegetable-stir-fry-3.jpg",
+            "foodPic": "https://www.averiecooks.com/wp-content/uploads/2015/03/broccolistirfry-15-720x720.jpg",
             "foodName": "Stir Fry Vegies",
             "Category": "Vegies",
             "foodPrice": 7.99
@@ -74,7 +74,7 @@
     {
         "foodID": "008",
         "properties": {
-            "foodPic": "https://www.gimmesomeoven.com/wp-content/uploads/2017/01/Chinese-Hot-and-Sour-Soup-Recipe-1-2-1100x1627.jpg",
+            "foodPic": "https://drivemehungry.com/wp-content/uploads/2020/07/hot-and-sour-soup-12.jpg",
             "foodName": "Hot & Sour Soup",
             "Category": "Soups",
             "foodPrice": 5.50
@@ -87,6 +87,87 @@
             "foodName": "Green Tea",
             "Category": "Drink",
             "foodPrice": 1.50
+        }
+    },
+    {
+        "foodID": "010",
+        "properties": {
+            "foodPic": "https://cdn.shopify.com/s/files/1/1127/6786/products/Spicy_chicken_with_Chinese_wine_2048x2048.JPG?v=1527182612",
+            "foodName": "Fried Chicken",
+            "Category": "Chicken",
+            "foodPrice": 13.99
+        }
+    },
+    {
+        "foodID": "011",
+        "properties": {
+            "foodPic": "https://www.thespruceeats.com/thmb/9ZSh4xEoU9bEHPvemIxUx6TTUoY=/2576x2576/smart/filters:no_upscale()/sesame-chicken-with-broccoli-on-square-plate-on-red-table-182503801-58853d785f9b58bdb38a6159.jpg",
+            "foodName": "Sesame Chicken",
+            "Category": "Chicken",
+            "foodPrice": 11.99
+        }
+    },
+    {
+        "foodID": "012",
+        "properties": {
+            "foodPic": "https://lh3.googleusercontent.com/BJQAQhEkbrkOHMuhZcFDiMHtuEv1Xp4KJNSeALM9z-rcEonmKTPZBeK0sJMdLSISoiGbNnbuwaayrPBqaFl0sA=w1280-h1280-c-rj-v1-e365",
+            "foodName": "Sesame Ball",
+            "Category": "Appetizers",
+            "foodPrice": 5.99
+        }
+    },
+    {
+        "foodID": "013",
+        "properties": {
+            "foodPic": "https://hello-oriental.co.uk/media/recipe/Chinese_Pork_Dumplings.jpg",
+            "foodName": "Fried Dumpling",
+            "Category": "Appetizers",
+            "foodPrice": 5.99
+        }
+    },
+    {
+        "foodID": "014",
+        "properties": {
+            "foodPic": "https://www.cookitrealgood.com/wp-content/uploads/2020/03/airfryermushrooms11.jpg",
+            "foodName": "Fried Mushroom",
+            "Category": "Vegies",
+            "foodPrice": 7.99
+        }
+    },
+    {
+        "foodID": "015",
+        "properties": {
+            "foodPic": "https://content.etilize.com/2000/1032527967.jpg",
+            "foodName": "Green Tea",
+            "Category": "Drink",
+            "foodPrice": 1.50
+        }
+    },
+    {
+        "foodID": "016",
+        "properties": {
+            "foodPic": "https://res.cloudinary.com/hksqkdlah/image/upload/8045_sfs-egg-drop-soup-article.jpg",
+            "foodName": "Egg Drop Soup",
+            "Category": "Soups",
+            "foodPrice": 4.59
+        }
+    },
+    {
+        "foodID": "017",
+        "properties": {
+            "foodPic": "https://images.food52.com/uQOE3j9ZOGB1RbWNn0_n4l_68z0=/1200x1200/c4e90eb4-1b56-404b-91b2-c9188b1017cd--2019-0219_chinese-12345-spareribs-genius-recipe_3x2_julia-gartland_278.jpeg",
+            "foodName": "Rice with Fried Ribs",
+            "Category": "Rice",
+            "foodPrice": 13.59
+        }
+    },
+    {
+        "foodID": "018",
+        "properties": {
+            "foodPic": "https://dizzybusyandhungry.com/wp-content/uploads/2020/06/teriyaki-salmon-3.jpg",
+            "foodName": "Rice with Salmon",
+            "Category": "Rice",
+            "foodPrice": 15.99
         }
     }
 ]

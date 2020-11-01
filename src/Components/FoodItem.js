@@ -26,7 +26,7 @@ class FoodItem extends Component {
     render() {
 
         return (
-            <div className="col-sm-4">
+            <div className="col-sm-4 col-6">
 
                 <div className="dish inline-block mt=5">
                     <div className="dishPic">
@@ -40,11 +40,11 @@ class FoodItem extends Component {
                     <div className="dishName text-center">{this.props.dish.properties.foodName}</div>
 
                     <tr className="row">
-                        <td className="dishPrice text-success text-center col-7">
+                        <td className="dishPrice text-success text-center col-sm-7">
                             ${this.props.dish.properties.foodPrice}
                         </td>
-                        <td className="col-5">
-                            <button className="btn btn-sm btn-success" onClick={() => this.addButton(this.props.dish.foodID)}>Add</button>
+                        <td className="col-sm-5">
+                            <button className="addFoodBtn btn btn-sm btn-success" onClick={() => this.addButton(this.props.dish.foodID)}>Add</button>
                         </td>
                     </tr>
                 </div >

@@ -47,13 +47,13 @@ const Header = props => {
             <div className="bg-dark">
                 <div className="Nav contentwidth mx-auto">
                     <div className="d-flex justify-content-end align-items-center">
-                        <Link className="NavLink text-light p-2" to='/'>
-                            Home
+                        <Link className="NavLink text-light text-center p-2" to='/'>
+                            Menu
                         </Link>
-                        <Link className="NavLink text-light p-2" to='/contactus'>
+                        <Link className="NavLink text-light text-center p-2" to='/contactus'>
                             Contact Us
                         </Link>
-                        <Link className="NavLink p-2" to='/order'>
+                        <Link className="NavLink text-center p-2" to='/order'>
                             <FontAwesomeIcon icon={faCartPlus} color="white" size="2x" alt="Shopping Cart"></FontAwesomeIcon>
                         </Link>
                     </div>

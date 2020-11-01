@@ -18,7 +18,7 @@ class MenuItem extends Component {
         const menu = this.props.menu
 
         return (
-            <div className="col-sm-4">
+            <div className="col-sm-4 col-6">
             <div className="dish inline-block">
                 <Link className="dishLink" to={menuPath} >
 

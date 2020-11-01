@@ -10,7 +10,7 @@ const MainMenu = props => {
     return (
 
         <div className="Content row mx-auto contentwidth py-3">
-            <div className="row mx-0 col-lg-8">
+            <div className="menuSide row mx-0 col-md-8 mx-auto">
 
                 {/* <ol className="row mx-auto col-lg-8"> */}
 

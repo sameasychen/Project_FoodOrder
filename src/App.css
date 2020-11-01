@@ -129,48 +129,65 @@ background-color: rgb(243, 243, 243);
 }
 /* End Order */
 
+/********** Between Medium devices only **********/
+@media (max-width: 920px) and ( min-width: 760px) {
+
+  .dish{
+    background-color: white;
+    width: 150px;
+    margin: 10px;
+    border: 1px solid rgb(224, 224, 224);
+    transition-duration: 0.3s;
+    margin:5px, 0px;
+  }
+
+}
+
+/********** Small devices only **********/
+@media (max-width: 576px)and ( min-width: 341px) {
+
+  .dish{
+    background-color: white;
+    width: 150px;
+    margin: 5px, 0px;
+    border: 1px solid rgb(224, 224, 224);
+    transition-duration: 0.3s;
+    margin:5px, 0px;
+  }
+  .menuSide{
+    border-bottom: 1px solid rgb(224, 224, 224);
+    padding-bottom: 8px;
+    margin-bottom: 8px
+  }
+  .addFoodBtn{
+    width: 100%;
+    /* margin-left: 20px; */
+    margin: auto;
+  }
+
+}
+
 /********** Extra small devices only **********/
-@media (max-width: 767px) {
-  /* Header */
-  .navbar-brand {
-    padding-top: 10px;
-    height: 80px;
+@media (max-width: 340px) {
+
+  .dish{
+    background-color: white;
+    width: 120px;
+    margin: 5px, 0px;
+    border: 1px solid rgb(224, 224, 224);
+    transition-duration: 0.3s;
+    margin:5px, 0px;
   }
-  .navbar-brand h1 { /* Restaurant name */
-    padding-top: 10px;
-    font-size: 5vw; /* 1vw = 1% of viewport width */
+  .menuSide{
+    border-bottom: 1px solid rgb(224, 224, 224);
+    padding-bottom: 8px;
   }
-  .navbar-brand p { /* Kosher cert */
-    font-size: .6em;
-    margin-top: 12px;
-  }
-  .navbar-brand p img { /* Star-K */
-    height: 20px;
+  .addFoodBtn{
+    width: 100%;
+    /* margin-left: 20px; */
+    margin: auto;
   }
 
-  #collapsable-nav a { /* Collapsed nav menu text */
-    font-size: 1.2em;
-  }
-  #collapsable-nav a span { /* Collapsed nav menu glyph */
-    font-size: 1em;
-    margin-right: 5px;
-  }
-
-  #call-btn > a {
-    font-size: 1.5em;
-    display: block;
-    margin: 0 20px;
-    padding: 10px;
-    border: 2px solid #fff;
-    background-color: #f6b319;
-    color: #951c49;
-  }
-  #xs-deliver {
-    margin-top: 5px;
-    font-size: .7em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-  }
 }
 
 /* Start Header */

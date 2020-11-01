@@ -31,7 +31,7 @@ class RightCol extends Component {
         let props = this.props;
         return (
 
-            <div className="border-left border-success col-lg-4">
+            <div className="border-left border-success col-md-4">
 
                 <OrderList orders={props.orders} onDelete={props.onDelete} onaddDish={props.onaddDish}  onminusDish={props.onminusDish}/>
 

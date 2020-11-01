@@ -11,7 +11,7 @@ const Header = props => {
         <div className="bg-dark">
 
             <div className="contentwidth row text-light mx-auto py-4">
-                <div className="col-md-5">
+                <div className="col-sm-5 col-5">
                     <p>WELCOME TO OUR RESTAURANT</p>
 
                     {
@@ -25,7 +25,7 @@ const Header = props => {
                     <p>Serving: Chinese Cuisine</p>
 
                 </div>
-                <div className="col-md-4">
+                <div className="col-sm-4 col-3">
                     <p>NAVIGATION</p>
                     <div>
                         <Link to='/'>
@@ -43,7 +43,7 @@ const Header = props => {
                     </Link>
                     </div>
                 </div>
-                <div className="col-md-3">
+                <div className="col-sm-3 col-4">
                     <p>ADDRESS</p>
                     <p>3795 Verdun St, Montreal, QC</p>
                     <p>Tel: 514-508-8868</p>
