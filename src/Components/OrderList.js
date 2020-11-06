@@ -71,17 +71,19 @@ class OrderList extends Component {
                             <button className="addDish col-sm-1 px-0" onClick={() => this.addFood(data.foodID)}>
                                 <FontAwesomeIcon icon={faPlusCircle} size="0.3x" alt="Add One"></FontAwesomeIcon>
                             </button>
-
+                            
                             <button className="minusDish col-sm-1 px-0" onClick={() => this.minusFood(data.foodID)}>
                                 <FontAwesomeIcon icon={faMinusCircle} size="0.3x" alt="Minus One"></FontAwesomeIcon>
                             </button>
 
                             <span className="px-3 col-sm-5 px-0">
+                            <small className="font-weight-bold">
                                 {data.properties.foodName}
+                                </small>
                             </span>
 
                             <span className="px-3 col-sm-4 px-0 text-right">
-                                {data.properties.foodPrice} X {data.properties.numOfitem}
+                               <small className="font-weight-bold"> {data.properties.foodPrice} X {data.properties.numOfitem}</small>
                             </span>
 
                             <button className="del col-sm-1 px-0" onClick={() => this.deleteFood(data.foodID)}>

@@ -13,7 +13,7 @@ const Appetizers = props => {
     return (
 
         <div className="Content row mx-auto contentwidth py-3">
-            <div className="row mx-0 col-lg-8">
+            <div className="row col-md-8 mx-auto">
 
                 <FoodList dishes={appetizers} onaddDish={props.onaddDish} />
 

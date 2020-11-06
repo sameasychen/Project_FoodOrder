@@ -40,10 +40,14 @@ background-color: rgb(243, 243, 243);
   margin: 0px 1px
 } */
 
+.menuItem{
+  margin-top: 10px;
+}
+
 .dish{
   background-color: white;
-  width: 170px;
-  margin: 10px;
+  /* width: 170px; */
+  
   border: 1px solid rgb(224, 224, 224);
   transition-duration: 0.3s;
 }
@@ -65,6 +69,7 @@ background-color: rgb(243, 243, 243);
 
 .dishPrice{
   font-weight: 500;
+  width: 70%;
 }
 
 .picImg{
@@ -83,10 +88,6 @@ background-color: rgb(243, 243, 243);
   color: black;
 }
 
-/* .midLine{
-  width: 1px;
-  background-color: black;
-} */
 
 .del{
   background-color: rgb(243, 243, 243);
@@ -129,66 +130,95 @@ background-color: rgb(243, 243, 243);
 }
 /* End Order */
 
-/********** Between Medium devices only **********/
-@media (max-width: 920px) and ( min-width: 760px) {
+/********** Large devices only **********/
+
+@media (min-width: 961px) {
 
   .dish{
-    background-color: white;
-    width: 150px;
-    margin: 10px;
-    border: 1px solid rgb(224, 224, 224);
-    transition-duration: 0.3s;
-    margin:5px, 0px;
+    width: 155px;
+    
   }
+
+  .rightCol{
+    margin-top: 15px;
+    border-left: 2px solid rgb(24, 23, 23);
+
+  }
+
+
+}
+
+
+/********** Medium devices only **********/
+@media (max-width: 960px) and ( min-width: 720px) {
+
+  .dish{
+   width: 145px;
+
+  }
+
+  .rightCol{
+    margin-top: 15px;
+    border-left: 2px solid rgb(24, 23, 23);
+
+  }
+
 
 }
 
 /********** Small devices only **********/
-@media (max-width: 576px)and ( min-width: 341px) {
+@media (max-width: 719px)and ( min-width: 576px) {
 
   .dish{
-    background-color: white;
-    width: 150px;
-    margin: 5px, 0px;
-    border: 1px solid rgb(224, 224, 224);
-    transition-duration: 0.3s;
-    margin:5px, 0px;
+    width: 120px;
+
   }
-  .menuSide{
-    border-bottom: 1px solid rgb(224, 224, 224);
-    padding-bottom: 8px;
-    margin-bottom: 8px
+
+  .rightCol{
+    margin-top: 15px;
+    border-top: 2px solid rgb(24, 23, 23);
+
   }
-  .addFoodBtn{
-    width: 100%;
-    /* margin-left: 20px; */
-    margin: auto;
-  }
+
+
 
 }
 
 /********** Extra small devices only **********/
-@media (max-width: 340px) {
+@media (max-width: 575px)and ( min-width: 340px) {
 
   .dish{
-    background-color: white;
-    width: 120px;
-    margin: 5px, 0px;
-    border: 1px solid rgb(224, 224, 224);
-    transition-duration: 0.3s;
-    margin:5px, 0px;
-  }
-  .menuSide{
-    border-bottom: 1px solid rgb(224, 224, 224);
-    padding-bottom: 8px;
-  }
-  .addFoodBtn{
-    width: 100%;
-    /* margin-left: 20px; */
-    margin: auto;
+     width: 135px;
+
   }
 
+  .rightCol{
+    margin-top: 15px;
+    border-top: 2px solid rgb(24, 23, 23);
+
+  }
+
+
+
 }
+
+/**********  Extra Extra small devices only **********/
+@media (max-width: 339px){
+
+  .dish{
+     width: 105px;
+
+  }
+
+  .rightCol{
+    margin-top: 15px;
+    border-top: 2px solid rgb(24, 23, 23);
+
+  }
+
+
+}
+
 
 /* Start Header */
 .NavLink{
