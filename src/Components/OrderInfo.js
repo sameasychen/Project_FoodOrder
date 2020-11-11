@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TimePicker from 'react-times';
+// import TimePicker from 'react-times';
 
 import 'react-times/css/classic/default.css';
 
@@ -29,24 +29,10 @@ class OrderInfo extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.setSingleNum = this.setSingleNum.bind(this)
-
 
     }
 
     componentDidMount() {
-        // const theOption = document.querySelector(".option3");
-        // const disableA = document.createAttribute("disabled");
-        // disableA.value = "true";
-        // theOption.setAttribute("disabled","true");
-        // console.log(theOption)
-
-        // const timeNow = new Date();
-
-
-        // const birthday = new Date('March 13, 08 04:20');
-        // const currentHour = birthday.getHours();
-        // console.log(timeNow)
 
         // this.onTimeChange();
         // this.setSingleNum();
@@ -126,9 +112,17 @@ class OrderInfo extends Component {
 
     setPickUpTime() {
 
-
-        let timeHour = new Date().getHours().toString();
+        let timeHourtemp = new Date().getHours().toString();
         let timeMin = new Date().getMinutes().toString();
+
+        let timeHour;
+
+        if (timeHourtemp < 10) {
+            timeHour = '0' + timeHourtemp.toString();
+        } else {
+
+            timeHour = timeHourtemp.toString()
+        }
 
         let hour = [];
         let hourTemp = [];
@@ -159,13 +153,13 @@ class OrderInfo extends Component {
 
                 let temp = tempHour + ":" + minites[j];
 
-                let obj = new Object();
+                let obj = {};
 
                 obj.time = temp;
 
-                if(timeHour> tempHour){
+                if( tempHour< timeHour){
                     obj.disa = "disabled";
-                } else if(timeHour== tempHour && timeMin >= minites[j]){
+                } else if(timeHour === tempHour && minites[j] <= timeMin ){
                     obj.disa = "disabled";
                 } else{
                     obj.disa = "";
@@ -175,7 +169,8 @@ class OrderInfo extends Component {
             }
         }
 
-        this.setState({ timeObj: time })
+        this.setState({ timeObj: time });
+    
     }
 
 
@@ -257,7 +252,7 @@ class OrderInfo extends Component {
                                         type="checkbox"
                                         value=""
                                         id="defaultCheck1" />
-                                    <label className="form-check-label" for="defaultCheck1">Need utilities</label>
+                                    <label className="form-check-label" htmlFor="defaultCheck1">Need utilities</label>
                                 </div>
 
                             </div>
@@ -284,12 +279,13 @@ class OrderInfo extends Component {
                                 </div> */}
 
 
+
                                 <div className="form-group">
-                                    <label className="h6" for="time-select">Please choose your pickup time:</label>
+                                    <label className="h6" htmlFor="time-select">Please choose your pickup time:</label>
                                     <select className="custom-select" id="time-select">
                                         <option defaultValue value="123" disabled="">Pickup time</option>
 
-                                        {this.state.timeObj.map(data => <option value={data.time} disabled={data.disa}>{data.time}</option>)}
+                                        {this.state.timeObj.map(data => <option key={data.index} value={data.time} disabled={data.disa}>{data.time}</option>)}
 
                                     </select>
                                 </div>
