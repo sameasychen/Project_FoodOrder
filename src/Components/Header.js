@@ -8,32 +8,6 @@ import Logo from '../Image/Logo.jpg'
 
 const Header = props => {
 
-    let dataReload = document.querySelectorAll("[data-reload]")
-
-    //console.log(dataReload)
-
-    let language = {
-        eng: {
-            welcome: "Welcome everyone"
-        },
-        fre: {
-            welcome: "Bienvenue"
-        }
-    }
-
-
-    let Parag = document.querySelector(".hi")
-    if (window.location.hash) {
-        if (window.location.hash === "#fre") {
-            Parag.textContent = language.fre.welcome;
-        }
-    }
-
-    // for(let i=0; i<= dataReload.length; i++){
-    //     dataReload[i].onclick = ()=>{
-    //         window.location.reload()
-    //     }
-    // }
 
     return (
 

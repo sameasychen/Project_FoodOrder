@@ -1,11 +1,9 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom'
 
 import {
     GoogleMap,
     useLoadScript,
     Marker,
-    InfoWindow,
 } from "@react-google-maps/api";
 
 const libraries = ["places"];

@@ -34,14 +34,12 @@ span{
 
 .Content{
 background-color: rgb(243, 243, 243);
+padding: 40px 0;
+min-height: 600px;
 }
 
-/* .dishText{
-  margin: 0px 1px
-} */
-
 .menuItem{
-  margin-top: 10px;
+  margin: 20px 0;
 }
 
 .dish{
@@ -59,6 +57,11 @@ background-color: rgb(243, 243, 243);
 }
 
 .dishLink:hover{
+  text-decoration:none;
+
+}
+
+.submitLink:hover{
   text-decoration:none;
 
 }
@@ -93,8 +96,6 @@ background-color: rgb(243, 243, 243);
   background-color: rgb(243, 243, 243);
   color:#ac0000;
   border:none;
-
-  /* float:right; */
 }
 
 .addDish{
@@ -141,16 +142,13 @@ background-color: rgb(243, 243, 243);
 
   .rightCol{
     margin-top: 15px;
-    border-left: 2px solid rgb(24, 23, 23);
+    border-left: 2px solid #28a745;
 
   }
-
-
 }
 
-
 /********** Medium devices only **********/
-@media (max-width: 960px) and ( min-width: 720px) {
+@media (max-width: 960px) and ( min-width: 768px) {
 
   .dish{
    width: 145px;
@@ -159,15 +157,30 @@ background-color: rgb(243, 243, 243);
 
   .rightCol{
     margin-top: 15px;
-    border-left: 2px solid rgb(24, 23, 23);
+    border-left: 2px solid #28a745;
 
   }
 
 
 }
 
-/********** Small devices only **********/
-@media (max-width: 719px)and ( min-width: 576px) {
+/********** Small 1 devices only **********/
+@media (max-width: 767px)and ( min-width: 610px) {
+
+  .dish{
+    width: 150px;
+
+  }
+
+  .rightCol{
+    margin-top: 15px;
+    border-top: 2px solid rgb(24, 23, 23);
+
+  }
+}
+
+/********** Small 2 devices only **********/
+@media (max-width: 609px)and ( min-width: 576px) {
 
   .dish{
     width: 120px;
@@ -179,9 +192,6 @@ background-color: rgb(243, 243, 243);
     border-top: 2px solid rgb(24, 23, 23);
 
   }
-
-
-
 }
 
 /********** Extra small devices only **********/
@@ -197,9 +207,6 @@ background-color: rgb(243, 243, 243);
     border-top: 2px solid rgb(24, 23, 23);
 
   }
-
-
-
 }
 
 /**********  Extra Extra small devices only **********/
@@ -215,8 +222,6 @@ background-color: rgb(243, 243, 243);
     border-top: 2px solid rgb(24, 23, 23);
 
   }
-
-
 }
 
 
@@ -224,10 +229,6 @@ background-color: rgb(243, 243, 243);
 .NavLink{
   width: 150px;
 }
-
-/* .LogoElement{
-  position: absolute;
-} */
 
 /* End Header  */
 
@@ -247,6 +248,8 @@ background-color: rgb(243, 243, 243);
 .hours{
   background-color: rgb(243, 243, 243);
 }
+/* End Contact Us */
+
 
 /* Start Order Info */
 

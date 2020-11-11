@@ -11,22 +11,22 @@ export const MenuCategory =
         "categoryName": "Chicken"
     },
     {
-        "categoryID": "002",
+        "categoryID": "003",
         "foodPic": require("./Image/Vegies.jpg"),
         "categoryName": "Vegies"
     },
     {
-        "categoryID": "003",
+        "categoryID": "004",
         "foodPic": require("./Image/Rice.jpg"),
         "categoryName": "Rice"
     },
     {
-        "categoryID": "004",
+        "categoryID": "005",
         "foodPic": require("./Image/Soups.jpg"),
         "categoryName": "Soups"
     },
     {
-        "categoryID": "005",
+        "categoryID": "006",
         "foodPic": require("./Image/Drink.jpg"),
         "categoryName": "Drink"
     }

@@ -39,6 +39,7 @@ class FoodItem extends Component {
 
                     <div className="dishName text-center">{this.props.dish.properties.foodName}</div>
                     <table>
+                        <tbody>
                         <tr>
                             <td className="dishPrice text-success text-left ">
                                 ${this.props.dish.properties.foodPrice}
@@ -47,6 +48,7 @@ class FoodItem extends Component {
                                 <button className="addFoodBtn btn btn-sm btn-success" onClick={() => this.addButton(this.props.dish.foodID)}>Add</button>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div >
             </div>

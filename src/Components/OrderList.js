@@ -52,14 +52,14 @@ class OrderList extends Component {
         let taxesTemp = beforeTaxTotal * 0.13;
 
         let taxes = taxesTemp.toFixed(2);
-    
+
         let afterTaxTotalTemp = beforeTaxTotal + taxesTemp
 
         let totalPrice = afterTaxTotalTemp.toFixed(2);
 
         return (
 
-            <div className="maxwidth  px-4 mx-auto">
+            <div className="maxwidth px-4 mx-auto">
 
                 <h4 className="font-weight-bold text-center border-bottom">Your order</h4>
 
@@ -68,26 +68,25 @@ class OrderList extends Component {
                     {orderedFood.map(data =>
 
                         <li className="row" key={data.foodID}>
-                            <button className="addDish col-sm-1 px-0" onClick={() => this.addFood(data.foodID)}>
-                                <FontAwesomeIcon icon={faPlusCircle} size="0.3x" alt="Add One"></FontAwesomeIcon>
-                            </button>
-                            
-                            <button className="minusDish col-sm-1 px-0" onClick={() => this.minusFood(data.foodID)}>
-                                <FontAwesomeIcon icon={faMinusCircle} size="0.3x" alt="Minus One"></FontAwesomeIcon>
+                            <button className="addDish col-1 px-0" onClick={() => this.addFood(data.foodID)}>
+                                <FontAwesomeIcon icon={faPlusCircle} size="sm" alt="Add One"></FontAwesomeIcon>
                             </button>
 
-                            <span className="px-3 col-sm-5 px-0">
-                            <small className="font-weight-bold">
+                            <button className="minusDish col-1 px-0" onClick={() => this.minusFood(data.foodID)}>
+                                <FontAwesomeIcon icon={faMinusCircle} size="sm" alt="Minus One"></FontAwesomeIcon>
+                            </button>
+
+                            <span className="col-6 px-0 font-weight-bold">
                                 {data.properties.foodName}
-                                </small>
+
                             </span>
 
-                            <span className="px-3 col-sm-4 px-0 text-right">
-                               <small className="font-weight-bold"> {data.properties.foodPrice} X {data.properties.numOfitem}</small>
+                            <span className="px-0 col-3 text-right font-weight-bold">
+                                {data.properties.foodPrice} X {data.properties.numOfitem}
                             </span>
 
-                            <button className="del col-sm-1 px-0" onClick={() => this.deleteFood(data.foodID)}>
-                                <FontAwesomeIcon icon={faTrashAlt} size="0.3x" alt="Minus One">
+                            <button className="del col-1 px-0" onClick={() => this.deleteFood(data.foodID)}>
+                                <FontAwesomeIcon icon={faTrashAlt} size="sm" alt="Minus One">
                                 </FontAwesomeIcon>
                             </button>
                         </li>
@@ -95,17 +94,20 @@ class OrderList extends Component {
                     )}
 
                 </ul>
+                <table className="maxwidth">
+                    <tbody>
+                        <tr className="row">
+                            <td className="col">Taxes:</td>
+                            <td className="col text-right font-weight-bold">$ {taxes}</td>
 
-                <tr className="row">
-                    <td className="col">Taxes:</td>
-                    <td className="col  text-right">$ {taxes}</td>
+                        </tr>
+                        <tr className="row">
+                            <td className="col">Total Price:</td>
+                            <td className="col text-right font-weight-bold">$ {totalPrice}</td>
 
-                </tr>
-                <tr className="row">
-                    <td className="col">Total Price:</td>
-                    <td className="col  text-right">$ {totalPrice}</td>
-
-                </tr>
+                        </tr>
+                    </tbody>
+                </table>
 
             </div>
         )

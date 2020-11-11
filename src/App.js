@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route} from 'react-router-dom'
 import './App.css'
 
 import Header from './Components/Header';
@@ -88,6 +88,7 @@ class App extends Component {
 
         order.properties.numOfitem += 1
       }
+      return order
     })
 
     this.setState(() => ({
@@ -111,6 +112,7 @@ class App extends Component {
 
         order.properties.numOfitem -= 1
       }
+      return order
     })
 
     this.setState(() => ({
@@ -123,8 +125,6 @@ class App extends Component {
 
   // Submit Order
   onSubmit = () => {
-
-
 
     let max = 100000000;
     let min = 10000000;
@@ -147,6 +147,7 @@ class App extends Component {
 
         order.properties.numOfitem = 0
       }
+      return order
     })
 
     this.setState(() => ({

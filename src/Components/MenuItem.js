@@ -1,21 +1,13 @@
-import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom'
 
 
 
-class MenuItem extends Component {
+const MenuItem = props => {
 
+        const menuPath = `/${props.menu.categoryName}`
 
-    constructor(props) {
-        super(props);
-
-    }
-
-    render() {
-
-        const menuPath = `/${this.props.menu.categoryName}`
-
-        const menu = this.props.menu
+        const menu = props.menu
 
         return (
             <div className="menuItem col-sm-4 col-6">
@@ -38,7 +30,7 @@ class MenuItem extends Component {
             </div >
             </div>
         );
-    }
+    
 }
 
 export default MenuItem;

@@ -5,7 +5,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 
 const Header = props => {
-    let startCount =[0,1,2,3,4];
+    let startCount = [0, 1, 2, 3, 4];
     return (
 
         <div className="bg-dark">
@@ -15,12 +15,12 @@ const Header = props => {
                     <p>WELCOME TO OUR RESTAURANT</p>
 
                     {
-                    startCount.map((index) =><FontAwesomeIcon key={index} icon={faStar} color="gold" size="1x" alt="Rate Star" />)
+                        startCount.map((index) => <FontAwesomeIcon key={index} icon={faStar} color="gold" size="1x" alt="Rate Star" />)
 
                     }
 
                     <span> 22 reviews</span>
-                    <br/>
+                    <br />
 
                     <p>Serving: Chinese Cuisine</p>
 
@@ -30,17 +30,17 @@ const Header = props => {
                     <div>
                         <Link to='/'>
                             Menu
-                    </Link>
+                        </Link>
                     </div>
                     <div>
-                        <Link to='/order'>
+                        <Link to='/'>
                             Location
-                    </Link>
+                        </Link>
                     </div>
                     <div>
                         <Link to='/contactus'>
                             Contact Us
-                    </Link>
+                        </Link>
                     </div>
                 </div>
                 <div className="col-sm-3 col-4">

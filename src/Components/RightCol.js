@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import OrderList from './OrderList';
 
@@ -35,7 +35,7 @@ class RightCol extends Component {
 
                 <OrderList orders={props.orders} onDelete={props.onDelete} onaddDish={props.onaddDish}  onminusDish={props.onminusDish}/>
 
-                <Link id="submit" to='/order' >
+                <Link className="submitLink" id="submit" to='/order' >
                     <button
                         className="btn btn-sm btn-success btn-block my-2"
                         onClick={this.submitLink}>
