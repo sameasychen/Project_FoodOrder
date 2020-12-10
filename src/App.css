@@ -98,23 +98,47 @@ min-height: 600px;
   border:none;
 }
 
+.del:hover{
+  
+  color:#f73030;
+
+} 
+
+.del:link{
+  color: #125568;
+}
+
 .addDish{
   background-color: rgb(243, 243, 243);
   
   color:#00ac17;
 
   border:none;
+}
+
+.addDish:hover{
+  
+  color:#22ee3d;
+
+} 
+
+.addDish:active:after{
+  color: #125568;
+  border:none;
 
 }
 
-.addDish.hover{
-  
+.addDish:active{
+  color: #00ac17;
+  border:none;
 
-  color:#005c0c;
+}
 
-  border:1px solid rgb(31, 17, 17);
-  
-} 
+.addDish:visited{
+  color: #00ac17;
+  border:none;
+
+}
 
 .minusDish{
   background-color: rgb(243, 243, 243);
@@ -122,6 +146,12 @@ min-height: 600px;
   border:none;
 
 }
+
+.minusDish:hover{
+  
+  color:#f73030;
+
+} 
 
 /* End Dish */
 
@@ -230,12 +260,24 @@ min-height: 600px;
   width: 150px;
 }
 
+.NavLink:hover{
+  color: #9da7b3;
+  text-decoration: none;
+}
+
 /* End Header  */
 
 
 /* Start Footer */
 
-   
+.FooterNav{
+  color: white;
+}
+
+.FooterNav:hover{
+  color: #9da7b3;
+  text-decoration: none;
+}
    
 /* End Footer */
 

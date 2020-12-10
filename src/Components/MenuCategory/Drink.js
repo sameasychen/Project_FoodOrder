@@ -1,7 +1,8 @@
 import React from 'react';
 
-import FoodList from '../FoodList';
 import RightCol from '../RightCol';
+import FoodItem from '../FoodItem';
+
 
 
 const Drink = props => {
@@ -12,18 +13,16 @@ const Drink = props => {
 
     return (
 
-        <div className="Content row mx-auto contentwidth py-3">
+        <div className="Content row mx-auto contentwidth">
             <div className="row col-md-8 mx-auto">
 
-                <FoodList dishes={drinks} onaddDish={props.onaddDish} />
+                {drinks.map(data => <FoodItem  key={data.foodID} dish={data} onaddDish={props.onaddDish} />)}
 
             </div>
-            {/* <div className="midLine"></div> */}
-           
 
-                <RightCol orders={props.orders} onDelete={props.onDelete} onSubmit={props.onSubmit} onaddDish={props.onaddDish} onminusDish={props.onminusDish}/>
+            <RightCol orders={props.orders} onDelete={props.onDelete} onSubmit={props.onSubmit} onaddDish={props.onaddDish} onminusDish={props.onminusDish} />
 
-            
+
 
         </div>
     );

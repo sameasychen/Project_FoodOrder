@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 
 const MenuItem = props => {
 
-        const menuPath = `/${props.menu.categoryName}`
+    const menuPath = `/${props.menu.categoryName}`
 
-        const menu = props.menu
+    const menu = props.menu
 
-        return (
-            <div className="menuItem col-sm-4 col-6">
+    return (
+        <div className="menuItem col-sm-4 col-6">
             <div className="dish inline-block mx-auto">
                 <Link className="dishLink" to={menuPath} >
 
@@ -28,9 +28,9 @@ const MenuItem = props => {
 
                 </Link>
             </div >
-            </div>
-        );
-    
+        </div>
+    );
+
 }
 
 export default MenuItem;

@@ -28,17 +28,17 @@ const Header = props => {
                 <div className="col-sm-4 col-3">
                     <p>NAVIGATION</p>
                     <div>
-                        <Link to='/'>
+                        <Link className="FooterNav" to='/'>
                             Menu
                         </Link>
                     </div>
                     <div>
-                        <Link to='/'>
+                        <Link className="FooterNav" to='/'>
                             Location
                         </Link>
                     </div>
                     <div>
-                        <Link to='/contactus'>
+                        <Link className="FooterNav" to='/contactus'>
                             Contact Us
                         </Link>
                     </div>

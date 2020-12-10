@@ -69,11 +69,21 @@ class OrderList extends Component {
 
                         <li className="row" key={data.foodID}>
                             <button className="addDish col-1 px-0" onClick={() => this.addFood(data.foodID)}>
-                                <FontAwesomeIcon icon={faPlusCircle} size="sm" alt="Add One"></FontAwesomeIcon>
+                                <FontAwesomeIcon 
+                                icon={faPlusCircle} 
+                                size="sm" 
+                                alt="Add One"
+                                className="align-text-top"
+                                ></FontAwesomeIcon>
                             </button>
 
                             <button className="minusDish col-1 px-0" onClick={() => this.minusFood(data.foodID)}>
-                                <FontAwesomeIcon icon={faMinusCircle} size="sm" alt="Minus One"></FontAwesomeIcon>
+                                <FontAwesomeIcon 
+                                icon={faMinusCircle} 
+                                size="sm" 
+                                alt="Minus One"
+                                className="align-text-top"
+                                ></FontAwesomeIcon>
                             </button>
 
                             <span className="col-6 px-0 font-weight-bold">
@@ -86,7 +96,10 @@ class OrderList extends Component {
                             </span>
 
                             <button className="del col-1 px-0" onClick={() => this.deleteFood(data.foodID)}>
-                                <FontAwesomeIcon icon={faTrashAlt} size="sm" alt="Minus One">
+                                <FontAwesomeIcon 
+                                icon={faTrashAlt} 
+                                size="sm" 
+                                alt="Minus One" className="align-text-top">
                                 </FontAwesomeIcon>
                             </button>
                         </li>

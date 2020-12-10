@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import './App.css'
 
 import Header from './Components/Header';
@@ -165,14 +165,28 @@ class App extends Component {
 
     console.log(this.state.menu)
 
+    const axios = require('axios');
+
+    axios.get('/hello/hello')
+      .then(function (response) {
+        // handle success
+        const data = response.data
+        console.log(data);
+      })
+      .catch(function(error){
+        console.log(error)
+      })
+
 
     return (
       <div className="App">
 
+
+
         <Route exact path='/' render={() => (
           <div>
             <Header />
-            <MainMenu menu={this.state.menu} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish}/>
+            <MainMenu menu={this.state.menu} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
             <Footer />
           </div>
         )} />
@@ -188,7 +202,7 @@ class App extends Component {
         <Route exact path='/Chicken' render={() => (
           <div>
             <Header />
-            <Chicken dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish}/>
+            <Chicken dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
             <Footer />
           </div>
         )} />
@@ -196,7 +210,7 @@ class App extends Component {
         <Route exact path='/Vegies' render={() => (
           <div>
             <Header />
-            <Vegies dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish}/>
+            <Vegies dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
             <Footer />
           </div>
         )} />
@@ -204,7 +218,7 @@ class App extends Component {
         <Route exact path='/Rice' render={() => (
           <div>
             <Header />
-            <Rice dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish}/>
+            <Rice dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
             <Footer />
           </div>
         )} />
@@ -212,7 +226,7 @@ class App extends Component {
         <Route exact path='/Soups' render={() => (
           <div>
             <Header />
-            <Soups dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish}/>
+            <Soups dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
             <Footer />
           </div>
         )} />
@@ -220,7 +234,7 @@ class App extends Component {
         <Route exact path='/Drink' render={() => (
           <div>
             <Header />
-            <Drink dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish}/>
+            <Drink dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
             <Footer />
           </div>
         )} />
@@ -228,7 +242,7 @@ class App extends Component {
         <Route path='/order' render={() => (
           <div>
             <Header />
-            <Order theorderID={this.state.orderID} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish}/>
+            <Order theorderID={this.state.orderID} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
             <Footer />
           </div>
         )} />
