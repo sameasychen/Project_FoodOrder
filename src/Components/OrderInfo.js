@@ -21,6 +21,8 @@ class OrderInfo extends Component {
             email: "",
             phone: "",
             message: "",
+            utensil: false,
+            pickupTime: "",
             nameError: "",
             emailError: "",
             phoneError: "",
@@ -34,8 +36,6 @@ class OrderInfo extends Component {
 
     componentDidMount() {
 
-        // this.onTimeChange();
-        // this.setSingleNum();
         this.setPickUpTime()
 
     }
@@ -68,7 +68,9 @@ class OrderInfo extends Component {
 
         event.preventDefault();
         const isValid = this.validate();
-        if (!isValid) {
+        // if (!isValid) {
+        if (false) {
+
             console.log("validation wrong");
             this.setState(initialState);
 
@@ -76,6 +78,11 @@ class OrderInfo extends Component {
         } else {
             console.log("validation correct");
             this.setState({ nameError: "", emailError: "", messageError: "" })
+
+            const state= this.state;
+
+            this.props.sendOrder(state.name, state.pickupTime, state.utensil, state.message, state.phone, state.email);
+
         }
 
     }
@@ -83,30 +90,12 @@ class OrderInfo extends Component {
 
 
     handleChange(event) {
-        const { name, value } = event.target
+
+        const target= event.target;
+        const value = target.type === 'checkbox'? target.checked: target.value;
+        const name = target.name;
 
         this.setState({ [name]: value })
-
-    }
-
-
-
-    onTimeChange(selectTime) {
-
-        console.log(selectTime);
-
-        // let changetime = new Object;
-
-        // changetime = selectTime;
-
-        // console.log(typeof changetime);
-
-        // let timeDOM = document.querySelector("TimePicker");
-
-        // console.log(timeDOM);
-
-
-        // timeDOM.setAttribute("time", "15:00");
 
     }
 
@@ -157,11 +146,11 @@ class OrderInfo extends Component {
 
                 obj.time = temp;
 
-                if( tempHour< timeHour){
+                if (tempHour < timeHour) {
                     obj.disa = "disabled";
-                } else if(timeHour === tempHour && minites[j] <= timeMin ){
+                } else if (timeHour === tempHour && minites[j] <= timeMin) {
                     obj.disa = "disabled";
-                } else{
+                } else {
                     obj.disa = "";
                 }
 
@@ -170,14 +159,12 @@ class OrderInfo extends Component {
         }
 
         this.setState({ timeObj: time });
-    
+
     }
 
 
 
     render() {
-
-
 
         return (
             <div className="col-md-8">
@@ -250,8 +237,11 @@ class OrderInfo extends Component {
                                     <input
                                         className="form-check-input"
                                         type="checkbox"
-                                        value=""
-                                        id="defaultCheck1" />
+                                        name="utensil"
+                                        value={this.state.utensil}
+                                        id="defaultCheck1" 
+                                        onChange={this.handleChange}
+                                        />
                                     <label className="form-check-label" htmlFor="defaultCheck1">Need utilities</label>
                                 </div>
 
@@ -259,30 +249,14 @@ class OrderInfo extends Component {
 
                             <div className="col-sm-6">
 
-
-                                {/* <div className="form-group">
-                                    <label className="h6" for="time-select">Please choose your pickup time:</label>
-                                    <TimePicker
-                                        className="timepick"
-                                        id="time-select"
-                                        theme="classic"
-                                        time="13:05"
-                                        timeMode="24"
-                                        timeConfig={{
-                                            from: 9,
-                                            to: 22,
-                                            step: 15,
-                                            unit: 'minutes'
-                                        }}
-                                        onTimeChange={this.onTimeChange.bind(this)}
-                                    />
-                                </div> */}
-
-
-
                                 <div className="form-group">
                                     <label className="h6" htmlFor="time-select">Please choose your pickup time:</label>
-                                    <select className="custom-select" id="time-select">
+                                    <select 
+                                    className="custom-select" id="time-select"
+                                    name="pickupTime"
+                                    onChange={this.handleChange}
+                                    value={this.state.pickupTime}
+                                    >
                                         <option defaultValue value="123" disabled="">Pickup time</option>
 
                                         {this.state.timeObj.map(data => <option key={data.index} value={data.time} disabled={data.disa}>{data.time}</option>)}

@@ -17,6 +17,8 @@ import ContactUs from './Components/ContactUs';
 import foodUrl from './FoodData.json';
 import { MenuCategory } from './MenuCategory';
 
+const axios = require('axios').default;
+
 class App extends Component {
 
   constructor(props) {
@@ -27,7 +29,10 @@ class App extends Component {
       dishes: [],
       orders: [],
       orderID: '',
-      menu: []
+      menu: [],
+      taxes: 0,
+      totalPrice: 0,
+
 
     };
 
@@ -74,6 +79,94 @@ class App extends Component {
 
   }
 
+  // Send out Orders
+  sendOrder = (customerName, pickupDate, utensil, notes, phone, email) => {
+
+    let orderedFood = this.state.orders.filter((data) => {
+      return data.properties.numOfitem > 0
+    })
+
+    const outputList = orderedFood.map(data => {
+      const oneDish = {};
+      oneDish.name = data.properties.foodName;
+      oneDish.quantity = data.properties.numOfitem;
+      return oneDish;
+    }
+    )
+
+
+    // axios({
+    //   method: 'post',
+    //   url: `localhost:8080/api/v1/email/send`,
+    //   headers: {
+    //     // "Content-Type": "application/json",
+    //     // "Access-Control-Allow-Origin:": "localhost:8080",
+    //   },
+    //   data: {
+
+    //     "customerName": customerName,
+    //     "pickupDate": pickupDate,
+    //     "utensil": utensil,
+    //     "foodList": outputList,
+    //     "priceTotal": this.state.totalPrice,
+    //     "note": notes,
+    //     "tax": this.state.taxes,
+    //     "phone": phone,
+    //     "receivers": email,
+    //     "ccnames": "",
+    //     "bccnames": "",
+
+    //   }
+
+    // })
+    //   .then(
+
+    //     (res) => {
+
+    //       console.log(res)
+
+    //     }
+    //   )
+
+
+
+
+  }
+
+  // Calculate Price and Tax
+  calculatePrice = () => {
+
+    let orderedFood = this.state.orders.filter((data) => {
+      return data.properties.numOfitem > 0
+    })
+
+    let beforeTaxTotal = 0;
+
+
+
+    for (let i = 0; i < orderedFood.length; i++) {
+
+      let eachPrice = orderedFood[i].properties.numOfitem * orderedFood[i].properties.foodPrice
+      beforeTaxTotal += eachPrice;
+    }
+
+    let taxesTemp = beforeTaxTotal * 0.13;
+
+    let taxes = taxesTemp.toFixed(2);
+
+    let afterTaxTotalTemp = beforeTaxTotal + taxesTemp
+
+    let totalPrice = afterTaxTotalTemp.toFixed(2);
+
+    this.setState(() => ({
+      taxes: taxes
+    }))
+    this.setState(() => ({
+      totalPrice: totalPrice
+    }))
+
+  }
+
   // Add Food
 
   addDish = (foodID) => {
@@ -95,6 +188,8 @@ class App extends Component {
       orders: newOrders
 
     }))
+
+    this.calculatePrice();
 
   }
 
@@ -119,6 +214,9 @@ class App extends Component {
       orders: newOrders
 
     }))
+
+    this.calculatePrice();
+
 
   }
 
@@ -155,38 +253,30 @@ class App extends Component {
       orders: newOrders,
 
     }))
+
+    this.calculatePrice();
+
   }
 
   render() {
 
-    console.log(this.state.dishes)
+    // console.log(this.state.dishes)
 
     console.log(this.state.orders)
 
     console.log(this.state.menu)
 
-    const axios = require('axios');
+    console.log(this.state.taxes)
 
-    axios.get('/hello/hello')
-      .then(function (response) {
-        // handle success
-        const data = response.data
-        console.log(data);
-      })
-      .catch(function(error){
-        console.log(error)
-      })
-
+    console.log(this.state.totalPrice)
 
     return (
       <div className="App">
 
-
-
         <Route exact path='/' render={() => (
           <div>
             <Header />
-            <MainMenu menu={this.state.menu} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
+            <MainMenu menu={this.state.menu} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} taxes={this.state.taxes} totalPrice={this.state.totalPrice} />
             <Footer />
           </div>
         )} />
@@ -194,7 +284,7 @@ class App extends Component {
         <Route exact path='/Appetizers' render={() => (
           <div>
             <Header />
-            <Appetizers dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
+            <Appetizers dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} taxes={this.state.taxes} totalPrice={this.state.totalPrice} />
             <Footer />
           </div>
         )} />
@@ -202,7 +292,7 @@ class App extends Component {
         <Route exact path='/Chicken' render={() => (
           <div>
             <Header />
-            <Chicken dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
+            <Chicken dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} taxes={this.state.taxes} totalPrice={this.state.totalPrice} />
             <Footer />
           </div>
         )} />
@@ -210,7 +300,7 @@ class App extends Component {
         <Route exact path='/Vegies' render={() => (
           <div>
             <Header />
-            <Vegies dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
+            <Vegies dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} taxes={this.state.taxes} totalPrice={this.state.totalPrice} />
             <Footer />
           </div>
         )} />
@@ -218,7 +308,7 @@ class App extends Component {
         <Route exact path='/Rice' render={() => (
           <div>
             <Header />
-            <Rice dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
+            <Rice dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} taxes={this.state.taxes} totalPrice={this.state.totalPrice} />
             <Footer />
           </div>
         )} />
@@ -226,7 +316,7 @@ class App extends Component {
         <Route exact path='/Soups' render={() => (
           <div>
             <Header />
-            <Soups dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
+            <Soups dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} taxes={this.state.taxes} totalPrice={this.state.totalPrice} />
             <Footer />
           </div>
         )} />
@@ -234,7 +324,7 @@ class App extends Component {
         <Route exact path='/Drink' render={() => (
           <div>
             <Header />
-            <Drink dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
+            <Drink dishes={this.state.dishes} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} taxes={this.state.taxes} totalPrice={this.state.totalPrice} />
             <Footer />
           </div>
         )} />
@@ -242,7 +332,7 @@ class App extends Component {
         <Route path='/order' render={() => (
           <div>
             <Header />
-            <Order theorderID={this.state.orderID} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} />
+            <Order theorderID={this.state.orderID} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} taxes={this.state.taxes} totalPrice={this.state.totalPrice} sendOrder={this.sendOrder} />
             <Footer />
           </div>
         )} />

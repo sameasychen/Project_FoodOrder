@@ -5,46 +5,91 @@ import OrderList from './OrderList';
 
 
 
-class RightCol extends Component {
+const RightCol = (props) => {
 
+    let orderedFood = props.orders.filter((data) => {
+        return data.properties.numOfitem > 0
+    })
 
-    constructor(props) {
-        super(props);
+    let submitLink = () => {
 
-        this.submitLink = this.submitLink.bind(this);
+        if (orderedFood[0]) {
+            props.onSubmit();
+        } else {
 
-    }
-
-    submitLink=()=>{
-
-        let orderedFood = this.props.orders.filter((data) => {
-            return data.properties.numOfitem > 0
-        })
-
-        if(orderedFood[0]){
-            this.props.onSubmit();
+            alert("Your order is empty");
         }
     }
 
-    render() {
 
-        let props = this.props;
-        return (
+    let content;
 
-            <div className="rightCol col-md-4">
+    if (props.isOrderPage) {
+        content = <div></div>
+    }
+    else {
 
-                <OrderList orders={props.orders} onDelete={props.onDelete} onaddDish={props.onaddDish}  onminusDish={props.onminusDish}/>
 
+        if (orderedFood[0]) {
+            content =
                 <Link className="submitLink" id="submit" to='/order' >
                     <button
                         className="btn btn-sm btn-success btn-block my-2"
-                        onClick={this.submitLink}>
+                        onClick={submitLink}>
                         Submit Order
-                  </button>
+                    </button>
+
                 </Link>
-            </div>
-        );
+        } else {
+            content =
+                <div className="submitLink" id="submit" >
+                    <button
+                        className="btn btn-sm btn-success btn-block my-2"
+                        onClick={submitLink}>
+                        Submit Order
+                    </button>
+
+                    {content}
+                </div>
+        }
     }
+
+    return (
+
+        <div className="rightCol col-md-4">
+
+            <OrderList orders={props.orders} onDelete={props.onDelete} onaddDish={props.onaddDish} onminusDish={props.onminusDish} taxes={props.taxes} totalPrice={props.totalPrice} />
+
+
+
+            {content}
+
+
+            {/* <Link className="submitLink" id="submit" to='/order' >
+                <button
+                    className="btn btn-sm btn-success btn-block my-2"
+                    onClick={this.submitLink}>
+                    Submit Order
+                   </button>
+
+            </Link>
+
+            <div className="submitLink" id="submit" >
+                <button
+                    className="btn btn-sm btn-success btn-block my-2"
+                    onClick={this.submitLink}>
+                    Submit Order
+                   </button>
+
+                {content}
+            </div> */}
+
+
+
+
+        </div>
+    );
+
 }
 
 export default RightCol;

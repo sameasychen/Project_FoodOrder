@@ -18,7 +18,7 @@ const Vegies = props => {
                 {vegies.map(data => <FoodItem  key={data.foodID} dish={data} onaddDish={props.onaddDish} />)}
             </div>
 
-            <RightCol orders={props.orders} onDelete={props.onDelete} onSubmit={props.onSubmit} onaddDish={props.onaddDish} onminusDish={props.onminusDish} />
+            <RightCol orders={props.orders} onDelete={props.onDelete} onSubmit={props.onSubmit} onaddDish={props.onaddDish} onminusDish={props.onminusDish} taxes={props.taxes} totalPrice={props.totalPrice}/>
 
         </div>
     );

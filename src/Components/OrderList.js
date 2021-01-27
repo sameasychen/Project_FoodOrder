@@ -34,28 +34,15 @@ class OrderList extends Component {
         this.props.onDelete(foodID)
     }
 
+    
+
     render() {
 
-        //Calculate Total Price
-        let orderedFood = this.props.orders.filter((data) => {
+        let zero =0;
+
+         let orderedFood = this.props.orders.filter((data) => {
             return data.properties.numOfitem > 0
         })
-
-        let beforeTaxTotal = 0
-
-        for (let i = 0; i < orderedFood.length; i++) {
-
-            let eachPrice = orderedFood[i].properties.numOfitem * orderedFood[i].properties.foodPrice
-            beforeTaxTotal += eachPrice;
-        }
-
-        let taxesTemp = beforeTaxTotal * 0.13;
-
-        let taxes = taxesTemp.toFixed(2);
-
-        let afterTaxTotalTemp = beforeTaxTotal + taxesTemp
-
-        let totalPrice = afterTaxTotalTemp.toFixed(2);
 
         return (
 
@@ -111,12 +98,21 @@ class OrderList extends Component {
                     <tbody>
                         <tr className="row">
                             <td className="col">Taxes:</td>
-                            <td className="col text-right font-weight-bold">$ {taxes}</td>
+                            <td className="col text-right font-weight-bold">$ {
+                            this.props.taxes>0?
+                            this.props.taxes:
+                            zero.toFixed(2)
+
+                            }</td>
 
                         </tr>
                         <tr className="row">
                             <td className="col">Total Price:</td>
-                            <td className="col text-right font-weight-bold">$ {totalPrice}</td>
+                            <td className="col text-right font-weight-bold">$ {this.props.totalPrice>0?
+                            this.props.totalPrice:
+                            zero.toFixed(2)
+                            
+                            }</td>
 
                         </tr>
                     </tbody>
