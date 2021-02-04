@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'
 
 import OrderList from './OrderList';
@@ -60,32 +60,7 @@ const RightCol = (props) => {
 
             <OrderList orders={props.orders} onDelete={props.onDelete} onaddDish={props.onaddDish} onminusDish={props.onminusDish} taxes={props.taxes} totalPrice={props.totalPrice} />
 
-
-
             {content}
-
-
-            {/* <Link className="submitLink" id="submit" to='/order' >
-                <button
-                    className="btn btn-sm btn-success btn-block my-2"
-                    onClick={this.submitLink}>
-                    Submit Order
-                   </button>
-
-            </Link>
-
-            <div className="submitLink" id="submit" >
-                <button
-                    className="btn btn-sm btn-success btn-block my-2"
-                    onClick={this.submitLink}>
-                    Submit Order
-                   </button>
-
-                {content}
-            </div> */}
-
-
-
 
         </div>
     );

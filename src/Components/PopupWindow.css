@@ -1,0 +1,26 @@
+.popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(177, 176, 176);
+    z-index: 5;
+    border: 2px black solid;
+    border-radius: 15px;
+}
+
+.popContainer{
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.failContainer{
+    margin-top: 35%;
+}
+
+.popBtn{
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}

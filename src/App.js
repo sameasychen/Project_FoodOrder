@@ -32,6 +32,8 @@ class App extends Component {
       menu: [],
       taxes: 0,
       totalPrice: 0,
+      orderSuccess: true,
+      popShow: false,
 
 
     };
@@ -94,43 +96,75 @@ class App extends Component {
     }
     )
 
+    if (outputList[0]) {
+      axios({
+        method: 'post',
+        url: `/api/v1/email/send`,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: {
 
-    // axios({
-    //   method: 'post',
-    //   url: `localhost:8080/api/v1/email/send`,
-    //   headers: {
-    //     // "Content-Type": "application/json",
-    //     // "Access-Control-Allow-Origin:": "localhost:8080",
-    //   },
-    //   data: {
+          "customerName": customerName,
+          "pickupDate": pickupDate,
+          "utensil": utensil,
+          "foodList": outputList,
+          "priceTotal": this.state.totalPrice,
+          "note": notes,
+          "tax": this.state.taxes,
+          "phone": phone,
+          "receivers": email,
+          "ccnames": "",
+          "bccnames": "",
 
-    //     "customerName": customerName,
-    //     "pickupDate": pickupDate,
-    //     "utensil": utensil,
-    //     "foodList": outputList,
-    //     "priceTotal": this.state.totalPrice,
-    //     "note": notes,
-    //     "tax": this.state.taxes,
-    //     "phone": phone,
-    //     "receivers": email,
-    //     "ccnames": "",
-    //     "bccnames": "",
+        }
+      })
+        .then(
+          (res) => {
+            console.log(res)
+            const correctRes = 'Success send email with content';
+            if (res.data === correctRes) {
+              alert("Order completed successfully!")
 
-    //   }
+            }
 
-    // })
-    //   .then(
+            this.setState(() => ({
+              orderSuccess: true
+            }))
 
-    //     (res) => {
+            this.setState(() => ({
+              popShow: true
+            }))
 
-    //       console.log(res)
+          }
+        )
+        .catch(
+          (err) => {
+            console.log(err);
+            // alert("Order sent failed, please try again later.")
+            this.setState(() => ({
+              orderSuccess: false
+            }))
 
-    //     }
-    //   )
+            this.setState(() => ({
+              popShow: true
+            }))
 
+          }
+        )
 
+    } else {
+      alert('The order can not be empty.')
+    }
 
+    console.log(this.state.popShow);
 
+  }
+
+  hidePop = () => {
+    this.setState(() => ({
+      popShow: false
+    }))
   }
 
   // Calculate Price and Tax
@@ -141,8 +175,6 @@ class App extends Component {
     })
 
     let beforeTaxTotal = 0;
-
-
 
     for (let i = 0; i < orderedFood.length; i++) {
 
@@ -332,7 +364,7 @@ class App extends Component {
         <Route path='/order' render={() => (
           <div>
             <Header />
-            <Order theorderID={this.state.orderID} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} taxes={this.state.taxes} totalPrice={this.state.totalPrice} sendOrder={this.sendOrder} />
+            <Order theorderID={this.state.orderID} orders={this.state.orders} onaddDish={this.addDish} onDelete={this.onDelete} onSubmit={this.onSubmit} onminusDish={this.minusDish} taxes={this.state.taxes} totalPrice={this.state.totalPrice} sendOrder={this.sendOrder} orderSuccess={this.state.orderSuccess} popShow={this.state.popShow} hidePop={this.hidePop} />
             <Footer />
           </div>
         )} />

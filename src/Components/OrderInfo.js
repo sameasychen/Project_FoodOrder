@@ -51,7 +51,10 @@ class OrderInfo extends Component {
         } else if (!this.state.phone) {
             this.setState({ phoneError: "Required" });
             return false;
-        } else if (this.state.email && !this.state.email.match(/.+@.+..+/g)) {
+        }else if (!this.state.email) {
+            this.setState({ emailError: "Required" });
+            return false;
+        }else if (this.state.email && !this.state.email.match(/.+@.+..+/g)) {
             this.setState({ emailError: "*Invalid email" });
             return false;
         } else if (this.state.message && this.state.message.length > 140) {
@@ -68,8 +71,8 @@ class OrderInfo extends Component {
 
         event.preventDefault();
         const isValid = this.validate();
-        // if (!isValid) {
-        if (false) {
+        if (!isValid) {
+        // if (false) {
 
             console.log("validation wrong");
             this.setState(initialState);
@@ -222,7 +225,7 @@ class OrderInfo extends Component {
                                         name="email"
                                         value={this.state.email}
                                         className="inputArea form-control d-block"
-                                        placeholder="Email"
+                                        placeholder="Email*"
                                         onChange={this.handleChange}
                                     />
                                     <label className="validateNote">
@@ -259,7 +262,7 @@ class OrderInfo extends Component {
                                     >
                                         <option defaultValue value="123" disabled="">Pickup time</option>
 
-                                        {this.state.timeObj.map(data => <option key={data.index} value={data.time} disabled={data.disa}>{data.time}</option>)}
+                                        {this.state.timeObj.map((data,index) => <option key={index} value={data.time} disabled={data.disa}>{data.time}</option>)}
 
                                     </select>
                                 </div>

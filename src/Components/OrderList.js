@@ -55,6 +55,8 @@ class OrderList extends Component {
                     {orderedFood.map(data =>
 
                         <li className="row" key={data.foodID}>
+
+
                             <button className="addDish col-1 px-0" onClick={() => this.addFood(data.foodID)}>
                                 <FontAwesomeIcon 
                                 icon={faPlusCircle} 
@@ -72,6 +74,8 @@ class OrderList extends Component {
                                 className="align-text-top"
                                 ></FontAwesomeIcon>
                             </button>
+
+                            
 
                             <span className="col-6 px-0 font-weight-bold">
                                 {data.properties.foodName}

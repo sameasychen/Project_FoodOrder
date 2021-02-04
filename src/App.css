@@ -38,6 +38,10 @@ padding: 40px 0;
 min-height: 600px;
 }
 
+.orderContent{
+  position: relative;
+}
+
 .menuItem{
   margin: 20px 0;
 }
@@ -175,6 +179,13 @@ min-height: 600px;
     border-left: 2px solid #28a745;
 
   }
+
+  .popup{
+    width: 500px;
+    height: 300px;
+
+}
+
 }
 
 /********** Medium devices only **********/
@@ -190,7 +201,11 @@ min-height: 600px;
     border-left: 2px solid #28a745;
 
   }
+  .popup{
+    width: 400px;
+    height: 320px;
 
+}
 
 }
 
@@ -207,6 +222,11 @@ min-height: 600px;
     border-top: 2px solid rgb(24, 23, 23);
 
   }
+  .popup{
+    width: 350px;
+    height: 365px;
+
+}
 }
 
 /********** Small 2 devices only **********/
@@ -222,6 +242,11 @@ min-height: 600px;
     border-top: 2px solid rgb(24, 23, 23);
 
   }
+  .popup{
+    width: 350px;
+    height: 365px;
+
+}
 }
 
 /********** Extra small devices only **********/
@@ -237,6 +262,11 @@ min-height: 600px;
     border-top: 2px solid rgb(24, 23, 23);
 
   }
+  .popup{
+    width: 350px;
+    height: 365px;
+
+}
 }
 
 /**********  Extra Extra small devices only **********/
@@ -252,6 +282,11 @@ min-height: 600px;
     border-top: 2px solid rgb(24, 23, 23);
 
   }
+  .popup{
+    width: 90%;
+    height: 390px;
+
+}
 }
 
 
